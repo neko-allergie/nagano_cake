@@ -12,27 +12,24 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
+  
+    root to: "homes#top"
+    get "/home/about"=>"homes#about", as: 'about'
 
 
 # 顧客用
   namespace :public do
-    root to: "homes#top"
-    get "/home/about"=>"homes#about", as: 'about'
-
-    resources :deli_addresses only:[:index, :edit, :create, :update, :destroy]
-    resources :orders only:[:index, :show, :create, :new, :confirm, :complete]
-    resources :cart_item only:[:index, :create, :destroy, :destroy_all, :update]
-    resources :items only:[:index, :show]
+    resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
+    resources :cart_item, only:[:index, :create, :destroy, :destroy_all, :update]
+    resources :items, only:[:index, :show]
   end
 
   # 管理者用
   namespace :admin do
     get 'homes/top'
-
-    resources :genres only:[:index, :create, :edit, :update]
-    resources :items only:[:index, :new, :create, :show, :edit, :update]
-    resources :customers only:[:index, :show, :edit, :update]
+    resources :genres, only:[:index, :create, :edit, :update]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
   end
-
-
 end
