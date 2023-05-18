@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+
 # 顧客用
   namespace :public do
     root to: "homes#top"
