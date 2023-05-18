@@ -1,0 +1,25 @@
+<p>ジャンル一覧・追加</p>
+<%= render 'layouts/errors', obj: @genre %>
+<%= render 'form', genre: @genre %>
+
+<table class='table table-hover table-inverse'>
+<thead>
+  <tr>
+    <th></th>
+    <th>ジャンル</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+<tbody>
+  <% @genres.each do |genre| %>
+  <tr>
+    <td>
+      <%= genre.name %>
+    </td>
+    <td>
+      <%= link_to '編集' , edit_admin_genre_path(genre), class: "btn btn-sm" %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
