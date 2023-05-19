@@ -14,13 +14,20 @@ Rails.application.routes.draw do
   }
 
 
-# 顧客用
+  root :to => "public/homes#top"
+  get "/home/about"=>"public/homes#about", as: 'about'
+
+# 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
-    root to: "homes#top"
-    get "/home/about"=>"homes#about", as: 'about'
+
+   
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
-    resources :cart_item, only:[:index, :create, :destroy, :destroy_all, :update]
+    resources :cart_items, only: %i[index create destroy] do
+     member do
+       patch 'increase'
+       patch 'decrease'
+     end
     resources :items, only:[:index, :show]
   end
 
@@ -30,5 +37,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
+  end
+  
   end
 end
