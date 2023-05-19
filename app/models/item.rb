@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   #enumで販売ステータスを管理,販売中は0、売り切れは1
-  enum sale_status: { on_sale:0 , sold:1 }
+  enum sale_status: { on_sale: 0 , sold: 1 }
 
   validates :genre, presence: true
   validates :name, presence: true
