@@ -13,12 +13,14 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  root to: "public/homes#top"
+
+  root :to => "public/homes#top"
   get "/home/about"=>"public/homes#about", as: 'about'
-  
-# 顧客用
+
+# 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
-  
+
+   
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
     resources :cart_items, only: %i[index create destroy] do
