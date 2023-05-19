@@ -1,2 +1,18 @@
-<h1>Public::Items#create</h1>
-<p>Find me in app/views/public/items/create.html.erb</p>
+<div class="container">
+    <%#= render 'ジャンル検索' %>
+  <table>
+    <thead>
+      <h1>商品一覧</h1>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <th><%= image_tag get_item_image(50.50) %>
+        <td><%= item.name %></td>
+        <td><%= item.without_tax %></td>
+      </th>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @items %>
