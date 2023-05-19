@@ -1,7 +1,7 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-　　　<%= link_to "Nagano Cake", public_root_path, class: "fa-solid fa-cake-candles" %>
+　　　<%= link_to "Nagano Cake", root_path, class: "fa-solid fa-cake-candles" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,9 +10,10 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
         <li class="nav-item">
-<%#
-          <%= link_to "商品一覧", path, class: 'btn btn-info'
+
+          <%= link_to "商品一覧", public_admin_items_path, class: 'btn btn-info' %>
         </li>
+<%#
         <li class="nav-item">
           <%= link_to "会員一覧", path, class: 'btn btn-info'
         </li>
@@ -28,7 +29,7 @@
         </li>
          <% else %>
          <li class="nav-item">
-          <%= link_to "About", public_about_path, class: 'btn btn-info' %>
+          <%= link_to "About", about_path, class: 'btn btn-info' %>
         </li>
 <%#
         <li class="nav-item">
