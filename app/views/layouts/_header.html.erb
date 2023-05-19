@@ -1,0 +1,50 @@
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+　　　<%= link_to "Nagano Cake", root_path, class: "fa-solid fa-cake-candles" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+        <li class="nav-item">
+<%#
+          <%= link_to "商品一覧", path, class: 'btn btn-info'
+        </li>
+        <li class="nav-item">
+          <%= link_to "会員一覧", path, class: 'btn btn-info'
+        </li>
+        <li class="nav-item">
+          <%= link_to "注文履歴一覧", path, class: 'btn btn-info'
+        </li>
+        <li class="nav-item">
+          <%= link_to "ジャンル一覧", path, class: 'btn btn-info'
+        </li>
+%>
+        <li class="nav-item">
+          <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %>
+        </li>
+         <% else %>
+         <li class="nav-item">
+          <%= link_to "About", about_path, class: 'btn btn-info' %>
+        </li>
+<%#
+        <li class="nav-item">
+          <%= link_to "商品一覧", new_user_session_path, class: 'nav-link text-dark'
+        </li>
+    　　<li class="nav-item">
+          <%= link_to "新規登録", new_user_session_path, class: 'nav-link text-dark'
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark'
+        </li>
+%>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
