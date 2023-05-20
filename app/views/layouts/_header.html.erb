@@ -10,9 +10,10 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
         <li class="nav-item">
-<%#
-          <%= link_to "商品一覧", path, class: 'btn btn-info'
+
+          <%= link_to "商品一覧", public_admin_items_path, class: 'btn btn-info' %>
         </li>
+<%#
         <li class="nav-item">
           <%= link_to "会員一覧", path, class: 'btn btn-info'
         </li>
