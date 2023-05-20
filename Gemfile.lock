@@ -258,7 +258,9 @@ DEPENDENCIES
   font-awesome-rails
   font-awesome-sass
   jbuilder (~> 2.7)
-  kaminari
+
+  kaminari (~> 1.2.1)
+
   listen (~> 3.3)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
