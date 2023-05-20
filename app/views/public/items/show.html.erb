@@ -1,2 +1,19 @@
-<h1>Public::Items#new</h1>
-<p>Find me in app/views/public/items/new.html.erb</p>
+<div class='container'>
+    <%#= render 'ジャンル検索' %>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%#= image_tag 選んだ商品 %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <table class='table'>
+        <tr>
+          <th>
+            <%= @item.name %>
+          </th>
+          <td><%= @item.introduction %></td>
+          <td></td>
+          <!--<td>item.税込み価格</td>-->
+      </table>
+    </div>
+  </div>
+</div>

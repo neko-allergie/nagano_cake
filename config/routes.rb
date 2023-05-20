@@ -13,14 +13,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-
-  root :to => "public/homes#top"
-  get "/home/about"=>"public/homes#about", as: 'about'
-
+    root to: "public/homes#top"
+    get "homes/about"=>"public/homes#about", as: 'about'
 # 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
 
-   
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
     resources :customers, only:[:show, :edit, :update, :confirm, :quit]
@@ -29,19 +26,23 @@ Rails.application.routes.draw do
        patch 'increase'
        patch 'decrease'
      end
+   end
     resources :items, only:[:index, :show]
   end
 
   # 管理者用
   namespace :admin do
-    get 'homes/top'
+    root to: "homes#top"
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
   end
 
+<<<<<<< HEAD
   
-  end
+=======
+
+>>>>>>> origin/develop
 
 
 
