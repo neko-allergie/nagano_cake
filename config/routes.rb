@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
+    resources :customers, only:[:show, :edit, :update, :confirm, :quit]
     resources :cart_items, only: %i[index create destroy] do
      member do
        patch 'increase'
