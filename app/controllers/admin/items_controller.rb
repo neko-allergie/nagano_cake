@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
   end
 
   def new
@@ -10,24 +10,24 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to public_admin_items_path, notice: "商品の新規登録が完了しました。"
+      redirect_to admin_items_path, notice: "商品の新規登録が完了しました。"
     else
       render :new
     end
   end
 
   def show
-    @item = Item.find(parms[:id])
+    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(parms[:id])
+    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(parms[:id])
-    if @item.update
-      redirect_to public_admin_items_path, notice: "商品内容の変更が完了しました。"
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_items_path, notice: "商品内容の変更が完了しました。"
     else
       render :edit
     end
