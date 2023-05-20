@@ -1,12 +1,10 @@
-
-
 <h2>商品新規登録</h2>
 
 
-<%= form_with model: @item, url: public_admin_items_path do |f| %>
+<%= form_with model: @item, url: admin_items_path do |f| %>
   <div>
     <%= f.label "商品画像" %>
-    <%= f.attachment_field :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div>
@@ -21,7 +19,7 @@
 
   <div>
     <%= f.label "ジャンル" %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt:"--選択して下さい--" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name,{prompt:"--選択して下さい--"} %>
   </div>
 
   <div>
@@ -29,12 +27,15 @@
     <%= f.text_field :without_tax, placeholder:"1000" %>円
   </div>
 
-    <div>
+  <div>
     <%= f.label "販売ステータス" %>
-    <%= f.collection_radio_buttons :sale_status, Item.sale_statuses, :first, :last %>
+     <%= f.label "販売中" %>
+   　<%= f.radio_button :sale_status, 0 %>
+     <%= f.label "販売停止中" %>
+   　<%= f.radio_button :sale_status, 1 %>
   </div>
 
   <div>
-    <%= f.submit "ログイン", class:"btn btn-info" %>
+    <%= f.submit "新規登録", class:"btn btn-success" %>
   </div>
 <% end %>

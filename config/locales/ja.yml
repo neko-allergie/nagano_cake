@@ -1,0 +1,8 @@
+
+#遠藤記述
+ja:
+    enums:
+      item:
+        sale_status:
+          on_sale: "販売中"
+          sold: "販売停止中"
