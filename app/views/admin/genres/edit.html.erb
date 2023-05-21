@@ -1,4 +1,11 @@
+<div class='container px-5 px-sm-0'>
+  <%= render 'layouts/errors', obj: @genre %>
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+      <li class="list-group-item list-group-item-secondary">ジャンル編集</li>
 
-<p>ジャンル編集</p>
-<%= render 'layouts/errors', obj: @genre %>
-<%= render 'form', genre: @genre %>
+      <%= render 'form', genre: @genre %>
+
+    </div>
+  </div>
+</div>
