@@ -17,22 +17,19 @@ Rails.application.routes.draw do
     get "homes/about"=>"public/homes#about", as: 'about'
 # 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
-
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
     resources :customers, only:[:show, :edit, :update, :confirm, :quit]
-    resources :cart_items, only: %i[index create destroy] do
 
-  items
+      resources :items, only:[:index, :show]
+
+    resources :cart_items, only: %i[index create destroy] do
      member do
        patch 'increase'
        patch 'decrease'
      end
-   end
-
-    resources :items, only:[:index, :show]
   end
-
+end
   # 管理者用
   namespace :admin do
     root to: "homes#top"
@@ -45,4 +42,3 @@ Rails.application.routes.draw do
 
 
   end
-
