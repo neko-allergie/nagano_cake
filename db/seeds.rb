@@ -16,3 +16,14 @@ Genre.create!(name: "プリン")
 Genre.create!(name: "焼き菓子")
 Genre.create!(name: "キャンディ")
 
+Customer.create!(
+   last_name: "もこ",
+   first_name: "すすす",
+   last_kana: "モコ",
+   first_kana: "ススス",
+   postcode: "123456",
+   address: "日本東京1-2-3",
+   phone_number: "09012345678",
+   email: "a@gmail.com",
+   password: "111111",
+   )

@@ -1,0 +1,43 @@
+<table class='table table-hover table-inverse'>
+
+  <tr>
+  <% if admin_signed_in? %>
+    <th>会員ID</th>
+    <td>
+    <%= customer.id %>
+    </td>
+  <% end %>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= customer.full_name %></td>
+  </tr>
+  <tr>
+    <th>フリガナ</th>
+    <td><%= customer.full_name_kana %></td>
+  </tr>
+  <tr>
+    <th>郵便番号</th>
+    <td><%= customer.postcode %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= customer.address %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= customer.phone_number %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= customer.email %></td>
+  </tr>
+  <tr>
+  <% if admin_signed_in? %>
+    <th>会員ステータス</th>
+    <td>
+
+    </td>
+  <% end %>
+  </tr>
+</table>
