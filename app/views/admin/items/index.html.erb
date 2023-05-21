@@ -1,4 +1,37 @@
-<h1>Adminのitem indexページです</h1>
-<%= link_to new_admin_item_path do %>
-  <i class="fa-solid fa-circle-plus fa-3x"></i>
-<% end %>
+<div class="container mt-5 mb-5">
+    <h2>商品一覧</h2>
+    <%= link_to new_admin_item_path, class: "btn btn-primary mb-3" do %>
+      <i class="fas fa-plus"></i> 商品新規登録
+    <% end %>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+          <th colspan="5"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= link_to admin_item_path(item.id) do %>
+          <%= item.name %>
+          <% end %></td>
+          <td><%= item.without_tax %>円</td>
+          <td><%= item.genre.name %></td>
+          <td>
+            <% if item.sale_status == "on_sale" %>
+              <p class="text-success"><strong>販売中</strong></p>
+            <% elsif item.sale_status == "sold" %>
+              <p class="text-danger"><strong>販売停止中</strong></p>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
