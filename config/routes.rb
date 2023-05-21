@@ -37,4 +37,9 @@ end
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
   end
-end
+
+
+
+
+  end
+
