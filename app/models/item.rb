@@ -13,7 +13,5 @@ class Item < ApplicationRecord
   validates :introduction, presence: true
   validates :without_tax, presence: true
 
-  scope :price_high_to_low, -> { order(price: :desc) }
-  scope :price_low_to_high, -> { order(price: :asc) }
 
 end
