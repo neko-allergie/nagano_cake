@@ -1,2 +1,7 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+
+<p><%= @customer.full_name %>さんの会員ページ</p>
+
+<%= render 'info', customer: @customer %>
+
+
+<%= link_to '編集' , edit_admin_customer_path(@customer), class: "btn btn-sm" %>  | <%= link_to '注文一覧' , admin_items_path, class: "btn btn-sm" %>
