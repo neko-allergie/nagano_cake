@@ -1,12 +1,11 @@
-<tbody>
+<table>
+  <tbody>
     <% genres.each do |genre| %>
-    <tr>
-      <% if genre.is_active == true %>　
-      <td>
-        <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-secondary" %>
-      </td>
-      <%# items_pathに引数としてgenre_idを渡す %>
-      <% end %>
-    </tr>
+      <tr>
+        <td>
+          <%= link_to genre.name, public_items_path(genre_id: genre.id), class: "text-secondary" %>
+        </td>
+      </tr>
     <% end %>
-</tbody>
+  </tbody>
+</table>

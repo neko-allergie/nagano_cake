@@ -15,4 +15,3 @@ Genre.create!(name: "ケーキ")
 Genre.create!(name: "プリン")
 Genre.create!(name: "焼き菓子")
 Genre.create!(name: "キャンディ")
-
