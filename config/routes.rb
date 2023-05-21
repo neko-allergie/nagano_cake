@@ -38,11 +38,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
   end
 
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> origin/develop
 
 
 
