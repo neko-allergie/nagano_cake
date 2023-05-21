@@ -1,2 +1,51 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<div class="container mt-5 mb-5">
+  <h2>注文情報入力</h2>
+
+  <%= form_with model: @order, url: admin_items_path, class: "my-4" do |f| %>
+    <div class="form-group">
+      <%= f.label "商品画像" %>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "商品名" %>
+      <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "商品説明" %>
+      <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "ジャンル" %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: "--選択して下さい--" }, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "税抜価格" %>
+      <div class="input-group">
+        <%= f.text_field :without_tax, placeholder: "1000", class: "form-control" %>
+        <div class="input-group-append">
+          <span class="input-group-text">円</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "販売ステータス" %>
+      <div class="form-check">
+        <%= f.radio_button :sale_status, "on_sale", class: "form-check-input" %>
+        <%= f.label "販売中", class: "form-check-label" %>
+      </div>
+      <div class="form-check">
+        <%= f.radio_button :sale_status, "sold", class: "form-check-input" %>
+        <%= f.label "販売停止中", class: "form-check-label" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "新規登録", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
