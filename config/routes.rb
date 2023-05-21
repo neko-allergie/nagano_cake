@@ -22,11 +22,14 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :create, :new, :confirm, :complete]
     resources :customers, only:[:show, :edit, :update, :confirm, :quit]
     resources :cart_items, only: %i[index create destroy] do
+
+  items
      member do
        patch 'increase'
        patch 'decrease'
      end
    end
+
     resources :items, only:[:index, :show]
   end
 
@@ -41,6 +44,5 @@ Rails.application.routes.draw do
 
 
 
+  end
 
-
-end
