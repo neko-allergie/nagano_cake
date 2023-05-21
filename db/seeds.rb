@@ -18,6 +18,7 @@ Genre.create!(name: "プリン")
 Genre.create!(name: "焼き菓子")
 Genre.create!(name: "キャンディ")
 
+
 #商品初期登録
 #ケーキの商品
 genre = Genre.find_by(name: "ケーキ")
@@ -104,4 +105,16 @@ item8 = Item.new(
 item8.image.attach(io: File.open(Rails.root.join('app/assets/images/candy_1.jpg')), filename: 'candy_1.jpg')
 item8.save!
 
+
+Customer.create!(
+   last_name: "もこ",
+   first_name: "すすす",
+   last_kana: "モコ",
+   first_kana: "ススス",
+   postcode: "123456",
+   address: "日本東京1-2-3",
+   phone_number: "09012345678",
+   email: "a@gmail.com",
+   password: "111111",
+   )
 
