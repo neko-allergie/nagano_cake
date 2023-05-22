@@ -1,7 +1,14 @@
+<div class="container mt-5 mb-5">
+  <p><%= @customer.full_name %>さんの会員ページ</p>
 
-<p><%= @customer.full_name %>さんの会員ページ</p>
+  <%= render 'info', customer: @customer %>
 
-<%= render 'info', customer: @customer %>
+  <%= link_to edit_admin_customer_path(@customer), class: "btn btn-primary mb-3" do %>
+    編集
+  <% end %>
 
+  <%= link_to admin_items_path, class: "btn btn-primary mb-3" do %>
+    注文一覧
+  <% end %>
 
-<%= link_to '編集' , edit_admin_customer_path(@customer), class: "btn btn-sm" %>  | <%= link_to '注文一覧' , admin_items_path, class: "btn btn-sm" %>
+</div>
