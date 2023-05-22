@@ -1,57 +1,7 @@
 
-<p>nameさんの会員ページ</p>
+<p><%= @customer.full_name %>さんの会員ページ</p>
 
-<table class='table table-hover table-inverse'>
-
-  <tr>
-    <th>会員ID</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>氏名</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>フリガナ</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>郵便番号</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>住所</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>電話番号</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td>
-
-    </td>
-  </tr>
-  <tr>
-    <th>会員ステータス</th>
-    <td>
-
-    </td>
-  </tr>
-</table>
+<%= render 'info', customer: @customer %>
 
 
-編集する | 注文一覧を見る
+<%= link_to '編集' , edit_admin_customer_path(@customer), class: "btn btn-sm" %>  | <%= link_to '注文一覧' , admin_items_path, class: "btn btn-sm" %>
