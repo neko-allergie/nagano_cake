@@ -36,14 +36,18 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
+
   private
 
-　def set_item
-　  @item = Item.find(params[:id])
-　end
+# 　def set_item
+    # @item = Item.find(params[:id])
+  # end
+
 
   def item_params
     params.require(:item).permit(:genre_id, :name, :introduction, :without_tax, :sale_status, :image)
-
   end
+
+
 end
+

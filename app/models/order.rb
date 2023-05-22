@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-  has_many :order_detial, dependent: :destroy
+  has_many :order_detials, dependent: :destroy
   belongs_to :customer
-  
+
 
   #enumで支払い方法を管理
   enum pay_method: { credit_card: 0 , transfer: 1 }
