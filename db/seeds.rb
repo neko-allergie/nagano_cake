@@ -19,6 +19,30 @@ Genre.create!(name: "焼き菓子")
 Genre.create!(name: "キャンディ")
 
 
+# 顧客データ初期登録
+Customer.create!(last_name: "山田",
+   first_name: "太郎",
+   last_kana: "ヤマダ",
+   first_kana: "タロウ",
+   email: "yamada.taro@gmail.com",
+   postcode: "1234567",
+   address: "東京都港区1-1-1",
+   phone_number: "09012345678",
+   password: "111111")
+
+Customer.create!(
+   last_name: "もこ",
+   first_name: "すすす",
+   last_kana: "モコ",
+   first_kana: "ススス",
+   postcode: "1234568",
+   address: "日本東京1-2-3",
+   phone_number: "09012345688",
+   email: "a@gmail.com",
+   password: "111111",
+   )
+
+
 #商品初期登録
 #ケーキの商品
 genre = Genre.find_by(name: "ケーキ")
@@ -106,15 +130,6 @@ item8.image.attach(io: File.open(Rails.root.join('app/assets/images/candy_1.jpg'
 item8.save!
 
 
-Customer.create!(
-   last_name: "もこ",
-   first_name: "すすす",
-   last_kana: "モコ",
-   first_kana: "ススス",
-   postcode: "123456",
-   address: "日本東京1-2-3",
-   phone_number: "09012345678",
-   email: "a@gmail.com",
-   password: "111111",
-   )
+
+
 
