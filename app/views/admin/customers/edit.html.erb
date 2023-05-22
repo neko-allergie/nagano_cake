@@ -4,42 +4,7 @@
     <div class='col-md-10 offset-md-1'>
     <li class="list-group-item list-group-item-secondary">顧客編集</li>
 
-    <%= form_with model: [:admin, @customer], local:true do |f| %>
-
-
-    <% if admin_signed_in? %>
-      <th>会員ID</th>
-      <td><%= @customer.id %></td>
-    <% end %>
-
-      <th>氏名</th>
-      <td><%= f.text_field :last_name, class: 'form-control' %><%= f.text_field :first_name, class: 'form-control' %></td>
-
-      <th>フリガナ</th>
-      <td><%= f.text_field :last_kana, class: 'form-control' %><%= f.text_field :first_kana, class: 'form-control' %></td>
-
-      <th>郵便番号</th>
-      <td><%= f.text_field :postcode, class: 'form-control' %></td>
-
-      <th>住所</th>
-      <td><%= f.text_field :address, class: 'form-control' %></td>
-
-      <th>電話番号</th>
-      <td><%= f.text_field :phone_number, class: 'form-control' %></td>
-
-      <th>メールアドレス</th>
-      <td><%= f.text_field :email, class: 'form-control' %></td>
-
-    <% if admin_signed_in? %>
-      <th>会員ステータス</th>
-      <td></td>
-    <% end %>
-
-
-    <%= f.submit class: 'btn btn-success' %>
-
-
-  <% end %>
+    <%= render 'form', customer: @customer %>
 
     </div>
   </div>

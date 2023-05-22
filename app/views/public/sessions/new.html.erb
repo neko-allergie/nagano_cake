@@ -1,26 +1,56 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+    <div class="row">
+      <div class="mx-auto col-10 col-ms-10 col-lg-8 col-xl-6">
+        <h3>ログイン</h3>
+        <P>会員の方はこちらからログイン</P>
+      
+      <%= form_with(model:resource, scope: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      
+        <div class="actions">
+          <%= f.submit "ログイン",class: "btn btn-primary sign_in" %>
+        </div>
+      <% end %>
+      
+      <P>会員登録がお済みでない方</P>
+      <%= render "public/shared/links" %>から新規登録を行ってください。
+     </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+  
+  <style>
+  div{white-space: nowrap;}
+  h3{
+    width:250px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color:gainsboro;
+    text-align:center;
+  }
+  p{
+  width:230px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background-color:gainsboro;
+  text-align:center;
+  }
+  
+.field{
+  text-align:center;
+  }
+</style>
