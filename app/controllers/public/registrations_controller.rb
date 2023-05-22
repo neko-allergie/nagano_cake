@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
-  # 表示しているページにログインが必要になる。新規登録もしくはログインに対してのみ、ログインかサインアップが必要になる。
+  # before_action:メソッド名,対象のアクション名。アクションの前に実行しているメソッド名を指定している。
+  # ここを入力したら、下の方でdef configure_sign_up_paramsしないといけない
   before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
   
   def after_sign_up_path_for(_resource)
     public_items_path

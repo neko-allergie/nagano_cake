@@ -31,31 +31,31 @@
         
          <!--顧客側-->
        <% elsif customer_signed_in? %>
-          <!--<li class="nav-item">-->
-          <!--<%#= link_to "マイページ", public_customer_path, class: 'btn btn-info' %>-->
-          <!--</li>-->
           <li class="nav-item">
-          <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
+            <%= link_to "マイページ", public_customer_show_path, class: 'btn btn-info' %>
           </li>
           <li class="nav-item">
-          <%= link_to "カート", public_cart_items_path, class: 'btn btn-info' %>
+            <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
           </li>
           <li class="nav-item">
-          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-info' %>
+            <%= link_to "カート", public_cart_items_path, class: 'btn btn-info' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-info' %>
           </li>
       
        <% else %>
           <li class="nav-item">
-          <%= link_to "About", about_path, class: 'btn btn-info' %>
+            <%= link_to "About", about_path, class: 'btn btn-info' %>
           </li>
           <li class="nav-item">
-          <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
+            <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
           </li>
     　　    <li class="nav-item">
-          <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-info' %>
+            <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-info' %>
           </li>
           <li class="nav-item">
-          <%= link_to "会員ログイン",new_customer_session_path, class: 'btn btn-info'%>
+            <%= link_to "会員ログイン",new_customer_session_path, class: 'btn btn-info'%>
           </li>
         </ul>
       <% end %>
