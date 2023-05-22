@@ -8,6 +8,13 @@ ja:
         sold: "販売停止中"
 
 ja:
+  enums:
+    order:
+      status:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+
+ja:
   activerecord:
     errors:
       messages:

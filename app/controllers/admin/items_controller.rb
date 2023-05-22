@@ -1,5 +1,7 @@
 class Admin::ItemsController < ApplicationController
-  
+  before_action :authenticate_admin!
+  before_action :set_item, only: %i[show edit update]
+
   def index
     @items = Item.page(params[:page]).per(10)
   end
@@ -18,15 +20,15 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    #set_itemで定義済み
   end
 
   def edit
-    @item = Item.find(params[:id])
+    #set_itemで定義済み
   end
 
   def update
-    @item = Item.find(params[:id])
+    #set_itemで定義済み
     if @item.update(item_params)
       redirect_to admin_items_path, notice: "商品内容の変更が完了しました。"
     else
@@ -35,6 +37,10 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
+
+　def set_item
+　  @item = Item.find(params[:id])
+　end
 
   def item_params
     params.require(:item).permit(:genre_id, :name, :introduction, :without_tax, :sale_status, :image)
