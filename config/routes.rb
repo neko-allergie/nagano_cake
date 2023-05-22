@@ -28,13 +28,14 @@ Rails.application.routes.draw do
 
       resources :items, only:[:index, :show]
 
+    delete "cart_items/destory_all" => "cart_items#destroy_all"
     resources :cart_items, only: %i[index create destroy] do
-     member do
-       patch 'increase'
-       patch 'decrease'
-     end
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
+    end
   end
-end
   # 管理者用
   namespace :admin do
     root to: "homes#top"

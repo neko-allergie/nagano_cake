@@ -12,6 +12,10 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :without_tax, presence: true
+  
+  def taxin_order_price
+    (self.without_tax * 1.1).round
+  end
 
   def get_item_image(width, height)
     unless image.attached?
