@@ -1,18 +1,32 @@
 <div class='container'>
     <%#= render 'ジャンル検索' %>
   <div class='row'>
-    <div class='col-md-3'>
-      <%#= image_tag 選んだ商品 %>
-    </div>
-    <div class='col-md-8 offset-md-1'>
+    <div class='col offset-md-1 text-center'>
       <table class='table'>
+        <tr>
+          <th>
+            <%= link_to public_item_path(@item) do %>
+              <%= image_tag @item.get_item_image(200,200) %>
+            <% end %>
+          </th>
+        </tr>
         <tr>
           <th>
             <%= @item.name %>
           </th>
+        </tr>
+        <tr>
           <td><%= @item.introduction %></td>
-          <td></td>
-          <!--<td>item.税込み価格</td>-->
+        </tr>
+        <tr>
+          <td><%= number_to_currency(@item.without_tax, strip_insignificant_zeros: true) %></td>
+        </tr>
+        <tr>
+          <th><button type="button" class="btn btn-primary">カートに入れる</button></th>
+        </tr>
+          
+          
+          
       </table>
     </div>
   </div>
