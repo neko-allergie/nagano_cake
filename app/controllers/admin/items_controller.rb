@@ -1,5 +1,5 @@
 class Admin::ItemsController < ApplicationController
-  
+
   def index
     @items = Item.page(params[:page]).per(10)
   end
@@ -35,6 +35,11 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
+
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:genre_id, :name, :introduction, :without_tax, :sale_status, :image)
