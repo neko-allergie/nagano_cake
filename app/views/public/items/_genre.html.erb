@@ -2,12 +2,9 @@
   <tbody>
     <% genres.each do |genre| %>
       <tr>
-        <td>
-          <%#= link_to "すべての商品", public_items_path %>
-        </td>
-        <td>
+        <th>
           <%= link_to genre.name, public_items_path(genre_id: genre.id), class: "text-secondary" %>
-        </td>
+        </th>
       </tr>
     <% end %>
   </tbody>
