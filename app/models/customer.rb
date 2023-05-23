@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
 
-  # 殻では保存できないバリテーション一括設定
+  # 空では保存できないバリテーション一括設定
   with_options presence: true do
     validates :last_name
     validates :first_name
@@ -26,5 +26,6 @@ class Customer < ApplicationRecord
   def full_name_kana
     self.last_kana + " " + self.first_kana
   end
+  
 
 end
