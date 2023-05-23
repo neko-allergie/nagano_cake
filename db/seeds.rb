@@ -20,7 +20,8 @@ Genre.create!(name: "キャンディ")
 
 
 # 顧客データ初期登録
-Customer.create!(last_name: "山田",
+Customer.create!(
+   last_name: "山田",
    first_name: "太郎",
    last_kana: "ヤマダ",
    first_kana: "タロウ",
@@ -44,7 +45,6 @@ Customer.create!(
 
 
 #商品初期登録
-#ケーキの商品
 genre = Genre.find_by(name: "ケーキ")
 item1 = Item.new(
    name:"ショコラ オランジュケーキ(ホール）",
