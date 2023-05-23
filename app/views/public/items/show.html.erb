@@ -22,11 +22,15 @@
           <td><%= number_to_currency(@item.without_tax, strip_insignificant_zeros: true) %></td>
         </tr>
         <tr>
-          <th><button type="button" class="btn btn-primary">カートに入れる</button></th>
+          <td>
+            <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local:true do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <div class="form-group">
+                <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </td>
         </tr>
-          
-          
-          
       </table>
     </div>
   </div>
