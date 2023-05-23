@@ -1,0 +1,18 @@
+<div class="bg-white p-6 md:mx-auto">
+  <div class="text-center">
+    <p class="text-center">本当に退会しますか？</p>
+    <p class="text-gray-600 my-2">退会すると、会員登録情報やこれまでの購入履歴が閲覧できなくなります。退会する場合は、「退会する」をクリックしてください。</p>
+    <div class="flex items-center justify-center space-x-5">
+      <div class="py-8 text-center">
+        <%= link_to public_customer_show_path, class: "px-5 py-2.5 text-black border " do %>
+          退会しない
+        <% end %>
+      </div>
+      <div class="py-8 text-center">
+        <%= link_to root_path, class: "px-5 py-2.5 text-gray-900 bg-white border border-gray-300 " do %>
+          退会する
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
-  def top
-  end
+   before_action :authenticate_customer!
+    def top
+    end
 
-  def about
-  end
+    def about
+    end
 end

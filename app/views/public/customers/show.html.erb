@@ -1,10 +1,64 @@
-<!--<div class="container">-->
+<div class="container">
     
-<!--    <div class="raow">-->
+    <div class="raow">
       
-<!--      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">-->
-<!--        <h2>マイページ</h2>-->
-<!--        登録情報<%#= link_to "編集する", edit_public_customer_path,class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--</div>-->
+      <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+        <h2>マイページ</h2>
+          登録情報<%= link_to "編集する", public_customer_edit_path,class: "btn btn-info btn-sm btn-block mb-3" %>
+      
+          
+          <table border="1">
+            <tr>
+              <th>氏名</th>
+              <td>
+                <%= @customer.last_name %>
+                <%= @customer.first_name %>
+              </td>
+            </tr>
+            <tr>
+              <th>カナ</th>
+              <td>
+                <%= @customer.last_kana %>
+                <%= @customer.first_kana %>
+              </td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td>
+                <%= @customer.postcode %>
+              </td>
+            <tr>
+              <th>住所</th>
+              <td>
+                <%= @customer.address %>
+              </td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td>
+                <%= @customer.phone_number %>
+              </td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td>
+                <%= @customer.email %>
+            </td>
+            </tr>
+          </table>
+            
+        配送先<%#= link_to "一覧を見る", edit_public_customer_path,class: "btn btn-primary btn-sm btn-block mb-3" %>
+        注文履歴<%#= link_to "一覧を見る", edit_public_customer_path,class: "btn btn-primary btn-sm btn-block mb-3" %>
+      </div>
+  </div>
+</div>
+
+
+<style>
+table{width:600px;}
+th{
+  background-color:gainsboro;
+  text-align:center;
+}
+td{width:70%;}
+</style>
