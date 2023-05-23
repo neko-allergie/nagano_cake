@@ -7,18 +7,18 @@
       商品一覧
     </span>
     <div class="row">
-      <div class="col-lg-4" >
+      <div class="col-lg-2" >
         <%= render 'genre', genres: @genres %>
       </div>
       
-      <div class="col-lg-8">
-        <div class="d-flex flex-wrap">
+      <div class="col-lg-10">
+        <div class="row d-flex flex-wrap">
           <% @items.each do |item| %>
-          <div class="mr-3">
+          <div class="col-3">
             <%= link_to public_item_path(item) do %>
-              <%= image_tag item.get_item_image(100,100) %>
+              <%= image_tag item.get_item_image(150,150) %>
             <% end %>
-          <p><%= link_to item.name, public_item_path(item) %><%= number_to_currency(item.without_tax, unit: "¥", strip_insignificant_zeros: true) %></p>
+          <p><%= link_to item.name, public_item_path(item) %><%= number_to_currency(item.without_tax, strip_insignificant_zeros: true) %></p>
           </div>
           <% end %>
         </div>

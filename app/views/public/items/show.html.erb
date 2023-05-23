@@ -1,18 +1,36 @@
 <div class='container'>
     <%#= render 'ジャンル検索' %>
   <div class='row'>
-    <div class='col-md-3'>
-      <%#= image_tag 選んだ商品 %>
-    </div>
-    <div class='col-md-8 offset-md-1'>
+    <div class='col offset-md-1 text-center'>
       <table class='table'>
+        <tr>
+          <th>
+            <%= link_to public_item_path(@item) do %>
+              <%= image_tag @item.get_item_image(200,200) %>
+            <% end %>
+          </th>
+        </tr>
         <tr>
           <th>
             <%= @item.name %>
           </th>
+        </tr>
+        <tr>
           <td><%= @item.introduction %></td>
-          <td></td>
-          <!--<td>item.税込み価格</td>-->
+        </tr>
+        <tr>
+          <td><%= number_to_currency(@item.without_tax, strip_insignificant_zeros: true) %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local:true do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <div class="form-group">
+                <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
       </table>
     </div>
   </div>

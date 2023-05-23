@@ -1,9 +1,10 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :set_cart_item, only: %i[increase decrease destroy]
+  before_action :set_cart_item , only: %i[increase decrease destroy]
 
   def index
     @cart_items = current_customer.cart_items
+    @total = 0
   end
 
   def create
@@ -27,6 +28,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    CartItem.destroy_all
+    redirect_to request.referer, notice: 'Successfully deleted one cart item'
   end
 
   def update
@@ -34,11 +37,16 @@ class Public::CartItemsController < ApplicationController
 
   private
 
+  def cart_item
+    params.require(:cart_item).permit(:quantity)
+  end
+
   def set_cart_item
+    # @item = Item.find(params[:item_id])
     @cart_item = current_customer.cart_items.find(params[:id])
   end
 
-  def increase_or_create(product_id)
+  def increase_or_create(item_id)
     cart_item = current_customer.cart_items.find_by(item_id:)
     if cart_item
       cart_item.increment!(:quantity, 1)

@@ -24,17 +24,24 @@ Rails.application.routes.draw do
          get 'complete'
        end
     end
-    resources :customers, only:[:show, :edit, :update, :confirm, :quit]
+    # URLを指定したいのでresourcesは使用できない。 
+    get "customers/infomation/my_page"=>"customers#show", as: 'customer_show'
+    get "customers/infomation/edit"=>"customers#edit", as: 'customer_edit'
+    patch "customers/infomation"=>"customers#update", as: 'customer_update'
+    get "customers/confirm"=>"customers#confirm", as: 'customer_confirm'
+    patch "customers/quit"=>"customers#quit", as: 'customer_quit'
+    
 
       resources :items, only:[:index, :show]
 
+    delete "cart_items/destory_all" => "cart_items#destroy_all"
     resources :cart_items, only: %i[index create destroy] do
-     member do
-       patch 'increase'
-       patch 'decrease'
-     end
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
+    end
   end
-end
   # 管理者用
   namespace :admin do
     root to: "homes#top"

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_detial, dependent: :destroy
+  has_many :order_detials, dependent: :destroy
   belongs_to :customer
 
 
