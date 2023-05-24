@@ -1,11 +1,12 @@
-<%= stylesheet_link_tag "application", :media => "all" %>
+
 <div class="container">
-<img decoding="async" id="mypic" src="pics/1.jpg" width="400" height="300">
+    
+<%= stylesheet_link_tag "application", :media => "all" %>
 
 
 
   <div class="mb-8 text-center">
-    <span class="h1 text-3xl font-bold text-lg display-6">
+    <span class="jquery text-3xl font-bold">
       商品一覧
     </span>
     <div class="row">
@@ -29,5 +30,5 @@
     </div>
   </div>
 </div>
-
+</html>
 <%= paginate @items %>
