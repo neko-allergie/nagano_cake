@@ -19,7 +19,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-
     @item = Item.find(params[:id])
   end
 
@@ -29,7 +28,6 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
     if @item.update(item_params)
       redirect_to admin_items_path, notice: "商品内容の変更が完了しました。"
     else
@@ -37,13 +35,10 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :introduction, :without_tax, :sale_status, :image)
+  params.require(:item).permit(:genre_id, :name, :introduction, :without_tax, :sale_status, :image)
+
   end
-
-
 end
-

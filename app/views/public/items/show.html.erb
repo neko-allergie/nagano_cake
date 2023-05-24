@@ -1,19 +1,20 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
 <div class='container'>
     <%#= render 'ジャンル検索' %>
   <div class='row'>
     <div class='col offset-md-1 text-center'>
       <table class='table'>
         <tr>
-          <th>
+          <td>
             <%= link_to public_item_path(@item) do %>
               <%= image_tag @item.get_item_image(200,200) %>
             <% end %>
-          </th>
+          </td>
         </tr>
         <tr>
-          <th>
+          <td>
             <%= @item.name %>
-          </th>
+          </td>
         </tr>
         <tr>
           <td><%= @item.introduction %></td>

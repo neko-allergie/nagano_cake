@@ -12,58 +12,63 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
+    @cart_items = current_customer.cart_items.all
     @order.postage = 800
-     if @order.save
-       @cart_items = CartItem.where(customer_id: current_customer.id)
-       @cart_items.each do |cart|
-         order_detail = OrderDetail.new
-         order_detail.item_id = cart.item_id
-         order_detail.order_id = @order.id
-         order_detail.quantity = cart.quantity
-         order_detail.order_price = cart.item.without_tax+@order.postage
-         order_detail.making_status = 0
-         order_detail.save
-       end
-       cart_items.destroy.all
-       redirect_to orders_confirm_path
-     else
-       @order = Order.new(order_params)
-       render :new
-     end
+
+    if @order.save
+      @cart_items.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart.item_id
+        order_detail.order_id = @order.id
+        order_detail.quantity = cart.quantity
+        order_detail.order_price = cart.item.without_tax + @order.postage
+        order_detail.making_status = 0
+        order_detail.save
+      end
+
+      current_customer.cart_items.destroy_all
+
+      redirect_to orders_confirm_path
+    else
+      @order = Order.new(order_params)
+      render :new
+    end
   end
 
   def new
     @order = Order.new
   end
 
-  def confirm
+  def comfirm
     @order = Order.new(order_params)
     @order.pay_method = params[:order][:pay_method].to_i
 
-    if params[:order][:address_number] == "0"
-       @order.postcode = current_customer.postcode
-       @order.address = current_customer.address
-       @order.name = current_customer.last_name + current_customer.first_name
-
-    elsif params[:order][:address_number] == "1"
-       DeliAddress.find(params[:order][:address])
-
-    elsif params[:order][:address_number] == "2"
-      @deli_address = DeliAddress.new
-      @deli_address.address = params[:order][:address]
-      @deli_address.name = params[:order][:name]
-      @deli_address.postcode = params[:order][:postcode]
-      @deli_address.customer_id = current_customer.id
-
-      if @deli_address.save
-      @order.postcode = @deli_address.postcode
-      @order.name = @deli_address.name
-      @order.address = @deli_address.address
+    if params[:order][:address] == "0"
+      @order.postcode = current_customer.postcode
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current_customer.first_name
+    elsif params[:order][:address] == "1"
+      deli_address = DeliAddress.find(params[:order][:address])
+      @order.postcode = deli_address.postcode
+      @order.address = deli_address.address
+      @order.name = deli_address.name
+    elsif params[:order][:address] == "2"
+      deli_address_new = current_customer.deli_addresses.new(deli_address_params)
+      if deli_address_new.save
+        @order.postcode = deli_address_new.postcode
+        @order.address = deli_address_new.address
+        @order.name = deli_address_new.name
       else
-       render 'new'
+        render 'new'
       end
+    end
 
-      @cart_items = current_customer.cart_items.all
+    @cart_items = current_customer.cart_items.all
+    @total = 0
+
+    @cart_items.each do |cart_item|
+      subtotal = cart_item.item.taxin_order_price * cart_item.quantity
+      @total += subtotal
     end
   end
 
@@ -73,13 +78,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_id,:adress,:pay_method,:postage,:postcode,:charge)
+    params.require(:order).permit(:name, :customer_id, :address, :pay_method, :postage, :postcode, :charge)
   end
-
-  def deli_address_params
-    params.require(:deli_address).permit(:adress,:name,:postcode,:customer_id)
-  end
-
-
 end
-
