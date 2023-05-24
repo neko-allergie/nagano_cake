@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     patch "customers/quit"=>"customers#quit", as: 'customer_quit'
     
 
-      resources :items, only:[:index, :show]
+    resources :items, only:[:index, :show]
 
     delete "cart_items/destory_all" => "cart_items#destroy_all"
     resources :cart_items, only: %i[index create destroy] do
