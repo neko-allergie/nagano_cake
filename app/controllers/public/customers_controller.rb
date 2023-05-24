@@ -19,7 +19,9 @@ class Public::CustomersController < ApplicationController
     end
     
     def quit
-      current_customer.update
+      # ログインしているカスタマーのis_deletedカラムをtrueで更新する
+      current_customer.update(is_deleted: true)
+      # 強制的にログアウト状態にする
       reset_session
       redirect_to root_path, notice: 'Successfully withdraw from Ecommerce'
     end

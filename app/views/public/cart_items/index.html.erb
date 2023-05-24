@@ -5,14 +5,14 @@
       ショッピングカート
     </span>
   </div>
-  
+
   <%= form_with model: @cart_item, url: public_cart_items_destory_all_path, method: :delete, "data-confirm" => "本当に消しますか？", local:true do |f| %>
     <div class="form-group col-md-3 offset-md-10">
       <%= f.submit "カートを空にする", class: "btn btn-sm btn-danger" %>
     </div>
   <% end %>
-  
-  
+
+
   <div class="row">
     <div class="col-md-6 offset-md-3 ">
       <% if @cart_items.count == 0 %>
@@ -98,7 +98,7 @@
             </div>
           </div>
           <!--下記のフォームは注文画面へのリンクにしてください。-->
-          <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local:true do |f| %>
+          <%= form_with model: @order, url: new_public_order_path, method: :get, local:true do |f| %>
             <div class="form-group col-md-8 offset-md-4">
               <%= f.submit "情報入力に進む", class: "btn btn-success" %>
             </div>

@@ -16,6 +16,7 @@ import "script.js"
 import Swiper from 'swiper/swiper-bundle.js';
 import 'swiper/swiper-bundle.css';
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

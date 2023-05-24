@@ -11,3 +11,38 @@
 span, div, f {
   font-family: "Nico Moji";
 }
+
+table {
+    background-color: #fffaf0;  /* 背景色指定 */
+}
+
+th {
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+}
+th:before, th:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+}
+th:before {
+  left: 7px;
+}
+th:after {
+  right: 7px;
+}
+
+body {
+  background-color: #faf0e6;
+}
+
+header {
+  background-color: #fff8dc;
+}
+

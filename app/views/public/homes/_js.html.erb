@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="homes" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="homes" href="style.css" />
+    <title>Swiper導入</title>
+  </head>
+  <body>
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+       <%= image_tag 'cake_1.jpg' %>
+    </div>
+    <div class="swiper-slide">
+       <%= image_tag 'cake_2.jpg' %>
+    </div>
+    <div class="swiper-slide">
+       <%= image_tag 'cake_3.jpg' %>
+    </div>
+    <div class="swiper-slide">
+       <%= image_tag 'cake_4.jpg' %>
+    </div>
+    <div class="swiper-slide">
+       <%= image_tag 'cake_5.jpg' %>
+    </div>
+  </div>
+      
+      <!-- ページネーションの要素 -->
+      <div class="swiper-pagination"></div>
+      <!-- ナビゲーションボタン （前、次） -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>
+

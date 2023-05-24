@@ -1,0 +1,59 @@
+<div class="container mt-5 mb-5">
+  <h2>注文情報確認</h2>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= cart_item.item.name %></td>
+              <td><%= number_to_currency(cart_item.item.taxin_order_price, strip_insignificant_zeros: true) %></td>
+              <td><%= cart_item.quantity %></td>
+              <td></td>
+            </tr>
+            <!--合計金額計算-->
+            <% @total += cart_item.item.taxin_order_price * cart_item.quantity %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-8">
+      <table class='table table-hover table-inverse'>
+        <tr>
+          <th>送料</th>
+          <th>800</th>
+        </tr>
+        <tbody>
+          <tr>
+            <th>商品合計</th>
+            <td><%= @total %></td>
+          </tr>
+          <tr>
+            <th>請求額</th>
+            <td><%= @total + 800 %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p><strong>支払方法 </strong><%= @order.pay_method %></p><br>
+
+  <p><strong>お届け先 </strong>〒<%= @order.postcode %> <%= @order.address %><br>
+  <%= @order.name %></p><br>
+
+  <%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
+    <div class="form-group col-md-8 offset-md-4">
+      <%= f.submit "注文を確定する", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>
