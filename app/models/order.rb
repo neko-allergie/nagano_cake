@@ -14,7 +14,6 @@ class Order < ApplicationRecord
 
   #バリテーション一括設定(空では保存できない)
   with_options presence: true do
-    validates :orders
     validates :customer_id
     validates :address
     validates :pay_method

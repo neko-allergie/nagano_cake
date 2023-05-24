@@ -18,9 +18,11 @@ Rails.application.routes.draw do
 # 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
+    
+    
     resources :orders, only:[:index, :show, :create, :new] do
        collection do
-         post 'comfirm'
+         post 'confirm'
          get 'complete'
        end
     end
