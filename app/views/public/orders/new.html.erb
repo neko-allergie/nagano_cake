@@ -1,25 +1,54 @@
 <div class="container mt-5 mb-5">
   <h2>注文情報入力</h2>
 
-  <%= form_with model: @order, url: public_orders_confirm_path, method: :post, class: "my-4" do |f| %>
-    <div class="form-group">
+  <%= form_with model: @order, url: comfirm_public_orders_path, method: :post, class: "my-4" do |f| %>
+    <div class="form-group mb-3">
       <%= f.label "支払い方法" %>
       <div class="form-check">
-      <%= f.radio_button :pay_method, Order.pay_methods.key(0), class: "form-check-input" %>
-      <%= f.label :pay_method_credit_card,Order.pay_methods_i18n[:credit_card], class: "form-check-label" %>
+        <%= f.radio_button :pay_method, Order.pay_methods.key(0), class: "form-check-input" %>
+        <%= f.label :pay_method_credit_card, Order.pay_methods_i18n[:credit_card], class: "form-check-label" %>
       </div>
       <div class="form-check">
-      <%= f.radio_button :pay_method, Order.pay_methods.key(1), class: "form-check-input" %>
-      <%= f.label :pay_method_transfer,Order.pay_methods_i18n[:transfer], class: "form-check-label" %>
+        <%= f.radio_button :pay_method, Order.pay_methods.key(1), class: "form-check-input" %>
+        <%= f.label :pay_method_transfer, Order.pay_methods_i18n[:transfer], class: "form-check-label" %>
       </div>
     </div>
 
     <div class="form-group">
       <%= f.label "お届け先" %>
-      <div class="form-check">
-      <%#= f.radio_button :, "on_sale", class: "form-check-input" %>
-      <%#= f.label "販売中", class: "form-check-label" %>
+      <div class="form-check mb-3">
+        <%= f.radio_button :address, 0, class: "form-check-input" %>
+        <%= f.label :address_0, "ご自身の住所", class: "form-check-label" %>
+        <br>
+        〒<%= current_customer.postcode %>
+        <%= current_customer.address %><br>
+        <%= current_customer.last_name + current_customer.first_name %>
+      </div>
+      <div class="form-check mb-3">
+        <%= f.radio_button :address, 1, class: "form-check-input" %>
+        <%= f.label :address_1, "登録先の住所", class: "form-check-label" %>
+        <%#= f.select :address_id, options_from_collection_for_select(DeliAddress.all, :id, :address_display) %>
+      </div>
+      <div class="form-check mb-3">
+        <%= f.radio_button :address, 2, class: "form-check-input" %>
+        <%= f.label :address_2, "新しいお届け先", class: "form-check-label" %><br>
+        <%= f.label :postcode, "郵便番号（ハイフンなし）", class: "form-check-label" %>
+        <div class="input-group">
+          <%= f.text_field :postcode, placeholder: "0000000", class: "form-control" %>
+        </div>
+        <%= f.label :address, "住所", class: "form-check-label" %>
+        <div class="input-group">
+          <%= f.text_field :address, placeholder: "ここに住所を入れて下さい", class: "form-control" %>
+        </div>
+        <%= f.label :name, "宛名", class: "form-check-label" %>
+        <div class="input-group">
+          <%= f.text_field :name, placeholder: "名前を入れて下さい", class: "form-control" %>
+        </div>
+      </div>
     </div>
 
-
+    <div class="form-group">
+      <%= f.submit "確認画面へ進む", class: "btn btn-info" %>
+    </div>
+  <% end %>
 </div>
