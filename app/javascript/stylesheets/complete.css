@@ -1,0 +1,18 @@
+.thx {
+    font-size: 30px;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+}
+.thx::before {
+    content:"complete";
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-8deg);
+    color: rgb(233, 108, 108, 0.4);
+    font-size: 60px;
+    font-family: luxus-brut, cursive;
+    font-style: italic;
+    z-index: -1;
+}
