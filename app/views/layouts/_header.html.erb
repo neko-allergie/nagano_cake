@@ -7,13 +7,12 @@
           <%= image_tag 'naganocake.png', size: '80x80' %>
         <% end %>
       </div>
-
-      <%= link_to root_path do %>
-       <i class="fa-solid fa-cake-candles">home</i>
-      <% end %>
-      <% if customer_signed_in? %>
-      <p> ようこそ <%= current_customer.last_name %>さん!</p>
-      <% end %>
+      <span class="col-md-4 offset-md-3">
+        <% if customer_signed_in? %>
+          <p> ようこそ <%= current_customer.last_name %>さん!</p>
+        <% end %>
+      </span>
+      
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
