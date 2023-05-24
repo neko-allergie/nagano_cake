@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items, dependent: :destroy
+  has_many :deli_addresses, dependent: :destroy
 
   # 空では保存できないバリテーション一括設定
   with_options presence: true do
