@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2023_05_23_092225) do
     t.integer "item_id", null: false
     t.integer "quantity", null: false
     t.integer "order_price", null: false
-    t.integer "making_status", null: false
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_order_details_on_item_id"
@@ -120,8 +120,8 @@ ActiveRecord::Schema.define(version: 2023_05_23_092225) do
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.string "address", null: false
-    t.integer "pay_method", null: false
-    t.integer "status", null: false
+    t.integer "pay_method", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.integer "postage", null: false
     t.string "postcode", null: false
     t.string "name", null: false
@@ -145,5 +145,5 @@ ActiveRecord::Schema.define(version: 2023_05_23_092225) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_details", "items"
-  add_foreign_key "order_details", "oders", column: "order_id"
+  add_foreign_key "order_details", "orders"
 end
