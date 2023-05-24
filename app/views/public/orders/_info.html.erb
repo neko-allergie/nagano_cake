@@ -1,0 +1,24 @@
+
+    注文情報
+    <table class='table table-hover table-inverse'>
+    <tr>
+      <th>注文日</th>
+      <td> <%= l order.created_at, format: :short %></td>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <td>
+        〒<%= order.postcode %><br>
+        <%= order.address %><br>
+        <%= order.name%>
+      </td>
+    </tr>
+    <tr>
+      <th>支払い方法</th>
+      <td><%= order.pay_method %></td>
+    </tr>
+    <tr>
+      <th>ステータス</th>
+      <td><%= order.status %></td>
+    </tr>
+  </table>

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_detials, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   belongs_to :customer
 
 
@@ -23,5 +23,12 @@ class Order < ApplicationRecord
     validates :name
     validates :charge
   end
+
+  # 商品合計金額
+  def sum_price
+    charge - postage
+  end
+
+
 
 end

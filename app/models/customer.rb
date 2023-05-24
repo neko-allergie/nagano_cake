@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
   has_many :deli_addresses, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   #郵便番号のバリデーション、7桁以外の数字は弾く正規表現
   VALID_POSTCODE_REGEX = /\A\d{7}\z/
