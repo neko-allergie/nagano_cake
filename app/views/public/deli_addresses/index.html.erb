@@ -1,2 +1,35 @@
-<h1>Public::DeliAddresses#index</h1>
-<p>Find me in app/views/public/deli_addresses/index.html.erb</p>
+配送先登録一覧
+<%= form_with model: @deli_address, url: public_deli_addresses_path do |f| %>
+  <table>
+    <tr>
+    <th>郵便番号(ハイフンなし)</th>
+    <td class="field">
+      <%= f.text_field :postcode %>
+    </td>
+    </tr>
+    <tr>
+    <th>住所</th>
+    <td class="field">
+      <%= f.text_field :address %>
+    </td>
+    </tr>
+    <tr>
+    <th>宛名</th>
+    <td><%= f.text_field :name, class: "field" %></td>
+    </tr>
+  </table>
+  <%= f.submit class: 'btn btn-success' %>
+<% end %>
+
+<table border="1">
+    <tr><th>郵便番号</th><th>住所</th><th>宛名</th><th></th></tr>
+    <% @deli_addresses.each do |deli_address| %>
+      <tr>
+      <td><%= deli_address.postcode %></td>
+      <td><%= deli_address.address %></td>
+      <td><%= deli_address.name %></td>
+      <td><%= link_to "編集する", edit_public_deli_address_path(deli_address),class: "btn btn-info btn-sm btn-block mb-3" %></td>
+      <td><%= link_to "削除する", public_deli_address_path(deli_address), method: :delete ,class: "btn btn-info btn-sm btn-danger mb-3" %></td>
+      </tr>
+    <% end %>
+</table>
