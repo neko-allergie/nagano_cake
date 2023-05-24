@@ -20,8 +20,6 @@
               <td><%= cart_item.quantity %></td>
               <td></td>
             </tr>
-            <!--合計金額計算-->
-            <% @total += cart_item.item.taxin_order_price * cart_item.quantity %>
           <% end %>
         </tbody>
       </table>
@@ -46,13 +44,18 @@
     </div>
   </div>
 
-  <p><strong>支払方法 </strong><%= @order.pay_method %></p><br>
+  <p><strong>支払方法 </strong><%= @order.pay_method_i18n %></p><br>
 
   <p><strong>お届け先 </strong>〒<%= @order.postcode %> <%= @order.address %><br>
   <%= @order.name %></p><br>
 
-  <%= form_with model: @order, url: public_orders_path, method: :post, local: true do |f| %>
+  <%= form_with model: @order, url: public_orders_path, local: true do |f| %>
     <div class="form-group col-md-8 offset-md-4">
+      <%= f.hidden_field :postcode, :value => @order.postcode %>
+      <%= f.hidden_field :address, :value => @order.address %>
+      <%= f.hidden_field :name, :value => @order.name %>
+      <%= f.hidden_field :charge, :value => @total %>
+      <%= f.hidden_field :pay_method, :value => @order.pay_method %>
       <%= f.submit "注文を確定する", class: "btn btn-success" %>
     </div>
   <% end %>

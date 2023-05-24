@@ -12,7 +12,6 @@ class Order < ApplicationRecord
   #郵便番号のバリデーション、7桁以外の数字は弾く正規表現
   VALID_POSTCODE_REGEX = /\A\d{7}\z/
 
-  validates :orders, presence: true
   validates :customer_id, presence: true
   validates :address, presence: true
   validates :pay_method, presence: true
