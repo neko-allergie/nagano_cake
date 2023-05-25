@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_detials, dependent: :destroy
+  has_many :order_details, dependent: :destroy
   belongs_to :customer
 
 
@@ -12,13 +12,23 @@ class Order < ApplicationRecord
   #郵便番号のバリデーション、7桁以外の数字は弾く正規表現
   VALID_POSTCODE_REGEX = /\A\d{7}\z/
 
-  validates :orders, presence: true
-  validates :customer_id, presence: true
-  validates :address, presence: true
-  validates :pay_method, presence: true
-  validates :status, presence: true
-  validates :postage, presence: true
-  validates :postcode, presence: true, format: { with: VALID_POSTCODE_REGEX }
-  validates :name, presence: true
-  validates :charge, presence: true
+  #バリテーション一括設定(空では保存できない)
+  with_options presence: true do
+    validates :customer_id
+    validates :address
+    validates :pay_method
+    validates :status
+    validates :postage
+    validates :postcode, format: { with: VALID_POSTCODE_REGEX }
+    validates :name
+    validates :charge
+  end
+
+  # 商品合計金額
+  def sum_price
+    charge - postage
+  end
+
+
+
 end

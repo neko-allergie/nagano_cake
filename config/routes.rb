@@ -18,21 +18,19 @@ Rails.application.routes.draw do
 # 顧客用 namespace使うと、全てのpathにpublic/が最初につく
   namespace :public do
     resources :deli_addresses, only:[:index, :edit, :create, :update, :destroy]
-    
-    
     resources :orders, only:[:index, :show, :create, :new] do
        collection do
-         post 'comfirm'
+         post 'confirm'
          get 'complete'
        end
     end
-    # URLを指定したいのでresourcesは使用できない。 
+    # URLを指定したいのでresourcesは使用できない。
     get "customers/infomation/my_page"=>"customers#show", as: 'customer_show'
     get "customers/infomation/edit"=>"customers#edit", as: 'customer_edit'
     patch "customers/infomation"=>"customers#update", as: 'customer_update'
     get "customers/confirm"=>"customers#confirm", as: 'customer_confirm'
     patch "customers/quit"=>"customers#quit", as: 'customer_quit'
-    
+
 
     resources :items, only:[:index, :show]
 

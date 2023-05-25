@@ -1,3 +1,29 @@
 // Place all the styles related to the public/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.line {
+      text-align: center;
+      position: relative;
+}
+
+.line::before,
+.line::after {
+      content: '';
+      width: 150px;
+      height: 4px;
+      display: block;
+      background-color: #f89019;
+}
+
+.line::before {
+      position: absolute;
+      top:50%;
+      left:20%;
+      transform: translateY(-50%);
+}
+.line::after {
+      position: absolute;
+      top:50%;
+      right:20%;
+      transform: translateY(-50%);
+}

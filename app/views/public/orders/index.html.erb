@@ -1,40 +1,43 @@
-<p>注文一覧</p>
-
-<table class='table table-hover table-inverse'>
-<thead>
-  <tr>
-    <th>注文日</th>
-    <th>配送先</th>
-    <th>注文商品</th>
-    <th>支払い金額</th>
-    <th>ステータス</th>
-    <th>注文詳細</th>
-  </tr>
-</thead>
- <tbody>
-  <% @orders.each do |order| %>
-  <tr>
-    <td>
-      <%= order.created_at %>
-    </td>
-    <td>
-      <%= order.address %>
-    </td>
-    <td>
-      注文商品
-    </td>
-    <td>
-      支払い金額
-    </td>
-    <td>
-      ステータス
-    </td>
-    <td>
-      注文詳細
-    </td>
-  </tr>
-  <% end %>
-</tbody>
-
-
-</table>
+<div class="container mt-5 mb-5">
+  <p>注文一覧</p>
+  <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>注文商品</th>
+      <th>支払い金額</th>
+      <th>ステータス</th>
+      <th>注文詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td>
+        <%= l order.created_at, format: :short %>
+      </td>
+      <td>
+        〒<%= order.postcode %><br>
+        <%= order.address %><br>
+        <%= order.name%>
+      </td>
+      <td>
+        <% order.order_details.each do |order_detail| %>
+          <%= order_detail.item.name %> <br>
+        <% end %>
+      </td>
+      <td>
+        <%= order.charge %>円
+      </td>
+      <td>
+        <%= order.status %>
+      </td>
+      <td>
+        <%= link_to '注文詳細', public_order_path(order), class: "btn btn-sm" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

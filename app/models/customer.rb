@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
   has_many :deli_addresses, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   # 空では保存できないバリテーション一括設定
   with_options presence: true do
@@ -27,6 +28,6 @@ class Customer < ApplicationRecord
   def full_name_kana
     self.last_kana + " " + self.first_kana
   end
-  
+
 
 end
