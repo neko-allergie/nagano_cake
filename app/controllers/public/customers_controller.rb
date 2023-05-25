@@ -12,6 +12,7 @@ class Public::CustomersController < ApplicationController
     def update
       customer = current_customer
       customer.update(customer_params)
+      #byebug
       redirect_to public_customer_edit_path
     end
     
@@ -23,11 +24,11 @@ class Public::CustomersController < ApplicationController
       current_customer.update(is_deleted: true)
       # 強制的にログアウト状態にする
       reset_session
-      redirect_to root_path, notice: 'Successfully withdraw from Ecommerce'
+      redirect_to root_path, notice: '退会が完了いたしました。またのご利用をお待ちしております。'
     end
     
     private
     def customer_params
-      params.require(:customer).permit(:last_name, :last_kana, :postcode, :address, :phone_number, :email)
+      params.require(:customer).permit(:last_name, :last_kana, :postcode, :first_name, :first_kana, :address, :phone_number, :email)
     end
 end
