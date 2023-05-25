@@ -1,19 +1,19 @@
+<%= stylesheet_link_tag "public/items", :media => "all" %>
 
 <div class="container">
-    
-<%= stylesheet_link_tag "application", :media => "all" %>
 
+      <h1 class="text-center display-6 text-3xl font-bold line mt-10 mb-10 text-success">
+        商品一覧
+      </h1>
 
+  
+  <div class="mb-8 mt-5 text-center">
 
-  <div class="mb-8 text-center">
-    <span class="jquery text-3xl font-bold">
-      商品一覧
-    </span>
     <div class="row">
       <div class="col-lg-2" >
         <%= render 'genre', genres: @genres %>
       </div>
-      
+
       <div class="col-lg-10">
         <div class="row d-flex flex-wrap">
           <% @items.each do |item| %>
@@ -21,12 +21,15 @@
             <%= link_to public_item_path(item) do %>
               <%= image_tag item.get_item_image(150,150) %>
             <% end %>
-          <p><%= link_to item.name, public_item_path(item) %><%= number_to_currency(item.without_tax, strip_insignificant_zeros: true) %></p>
+            <div><%= link_to item.name, public_item_path(item) %></div>
+
+            <div><%= number_to_currency(item.without_tax, strip_insignificant_zeros: true) %></div>
+
           </div>
           <% end %>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>

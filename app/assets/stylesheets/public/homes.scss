@@ -1,3 +1,25 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  background-image: linear-gradient(40deg, #fce043 0%, #fb7ba2 74%);
+}
+
+table tr:last-child *{
+  border-bottom: none;
+}
+
+table th,table td{
+  text-align: center;
+  border: solid 2px #fff;
+  color: black;
+  padding: 10px 0;
+}
+
