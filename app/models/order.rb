@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
-  belongs_to :customer
+  belongs_to :customer, optional: true
 
 
   #enumで支払い方法を管理
@@ -14,21 +14,19 @@ class Order < ApplicationRecord
 
   #バリテーション一括設定(空では保存できない)
   with_options presence: true do
-    validates :customer_id
+    #validates :customer_id
     validates :address
     validates :pay_method
     validates :status
-    validates :postage
+    #validates :postage
     validates :postcode, format: { with: VALID_POSTCODE_REGEX }
     validates :name
-    validates :charge
+    #validates :charge
   end
 
   # 商品合計金額
   def sum_price
     charge - postage
   end
-
-
 
 end

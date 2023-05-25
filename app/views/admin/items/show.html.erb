@@ -21,7 +21,7 @@
         </div>
         <div class="item-info">
           <span class="item-label">税込価格(税抜価格)：</span>
-          <span class="item-charge"><%= (@item.without_tax) %>円</span>
+          <span class="item-charge"><%= @item.taxin_order_price %>(<%= @item.without_tax %>)円</span>
         </div>
         <div class="item-info">
           <span class="item-label">販売ステータス：</span>
