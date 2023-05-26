@@ -33,7 +33,11 @@
   <tr>
     <th>会員ステータス</th>
     <td>
-
+     <% if customer.is_deleted == false %>
+      <p>有効</p>
+    <% else %>
+      <p>退会</p>
+    <%end%>
     </td>
   </tr>
 </table>

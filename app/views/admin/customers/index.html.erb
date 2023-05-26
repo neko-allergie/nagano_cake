@@ -8,7 +8,7 @@
       <th>氏名</th>
       <th colspan="2"></th>
       <th>メールアドレス</th>
-      <th colspan="1"></th>
+      <th>ステータス</th>
     </tr>
   </thead>
    <tbody>
@@ -27,7 +27,11 @@
         <%= customer.email %>
       </td>
       <td>
-        ステータス
+        <% if customer.is_deleted == false %>
+          <p>有効</p>
+        <% else %>
+          <p>退会</p>
+        <%end%>
       </td>
     </tr>
     <% end %>

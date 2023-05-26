@@ -29,7 +29,8 @@ Customer.create!(
    postcode: "1234567",
    address: "東京都港区1-1-1",
    phone_number: "09012345678",
-   password: "111111")
+   password: "111111",
+   )
 
 Customer.create!(
    last_name: "もこ",
