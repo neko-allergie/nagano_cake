@@ -22,11 +22,16 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def order_show
+    # @customer = Customer.find()
+    # @customer = Customer.find(params[:id])
+  end
+
 
 
   private
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_kana, :first_kana, :postcode, :address, :phone_number, :email)
+    params.require(:customer).permit(:last_name, :first_name, :last_kana, :first_kana, :postcode, :address, :phone_number, :email, :is_deleted)
   end
 
 

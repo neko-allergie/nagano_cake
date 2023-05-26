@@ -1,32 +1,50 @@
-<%= form_with model: @customer, url: public_customer_update_path do |f| %>
-  <table>
-    <tr>
-    <th>氏名</th>
-    <td><%= f.text_field :last_name, class: 'form-control' %><%= f.text_field :first_name, class: 'form-control' %></td>
-    </tr>
-    <tr>
-    <th>フリガナ</th>
-    <td><%= f.text_field :last_kana, class: 'form-control' %><%= f.text_field :first_kana, class: 'form-control' %></td>
-    </tr>
-    <tr>
-    <th>郵便番号</th>
-    <td><%= f.text_field :postcode, class: 'form-control' %></td>
-    </tr>
-    <tr>
-    <th>住所</th>
-    <td><%= f.text_field :address, class: 'form-control' %></td>
-    </tr>
-    <tr>
-    <th>電話番号</th>
-    <td><%= f.text_field :phone_number, class: 'form-control' %></td>
-    </tr>
-    <tr>
-    <th>メールアドレス</th>
-    <td><%= f.text_field :email, class: 'form-control' %></td>
-    </tr>
-    
-  </table>
-  <%= f.submit class: 'btn btn-success' %>
-<% end %>
 
-<%= link_to "退会する", public_customer_confirm_path,class: "btn btn-danger" %>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>登録情報編集画面</h2>
+      <%= form_with model: @customer, url: public_customer_update_path do |f| %>
+        <table>
+          <tr>
+          <th>氏名</th>
+          <td><%= f.text_field :last_name, class: 'form-control' %><%= f.text_field :first_name, class: 'form-control' %></td>
+          </tr>
+          <tr>
+          <th>フリガナ</th>
+          <td><%= f.text_field :last_kana, class: 'form-control' %><%= f.text_field :first_kana, class: 'form-control' %></td>
+          </tr>
+          <tr>
+          <th>郵便番号</th>
+          <td><%= f.text_field :postcode, class: 'form-control' %></td>
+          </tr>
+          <tr>
+          <th>住所</th>
+          <td><%= f.text_field :address, class: 'form-control' %></td>
+          </tr>
+          <tr>
+          <th>電話番号</th>
+          <td><%= f.text_field :phone_number, class: 'form-control' %></td>
+          </tr>
+          <tr>
+          <th>メールアドレス</th>
+          <td><%= f.text_field :email, class: 'form-control' %></td>
+          </tr>
+          
+        </table>
+      <div class="button">
+        <%= f.submit class: 'btn btn-outline-secondary' %>
+        <%= link_to "退会する", public_customer_confirm_path,class: "btn btn-outline-danger"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+table{width:800px;}
+th{text-align:center;}
+td{width:80%;}
+h2{margin-top:20px;
+   margin-bottom:20px;}
+.button{margin-top:20px;}
+</style>

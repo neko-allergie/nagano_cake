@@ -7,12 +7,13 @@
           <%= image_tag 'naganocake.png', size: '80x80' %>
         <% end %>
       </div>
+
       <span class="col-md-4 offset-md-3">
         <% if customer_signed_in? %>
           <p> ようこそ <%= current_customer.last_name %>さん!</p>
         <% end %>
       </span>
-      
+
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +28,9 @@
           <li class="nav-item">
             <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-info' %>
           </li>
-  <%#
           <li class="nav-item">
-            <%= link_to "注文履歴一覧", path, class: 'btn btn-info'
+            <%= link_to "注文履歴一覧", admin_root_path, class: 'btn btn-info' %>
           </li>
-  %>
           <li class="nav-item">
             <%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-info'%>
           </li>

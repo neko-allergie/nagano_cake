@@ -12,12 +12,17 @@
 /*  font-family: "Hannari";*/
 /*}*/
 
+/*span, div, f {*/
+/*  font-family: "Nico Moji";*/
+/*}*/
+
 span, div, f {
-  font-family: "Nico Moji";
+  font-family: 'Kaisei Opti', serif;
 }
 
+
 table {
-    background-color: #fffaf0;  
+  background-color: #fffaf0;
 }
 
 th {
