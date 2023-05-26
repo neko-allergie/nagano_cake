@@ -12,7 +12,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_items_path, notice: "商品の新規登録が完了しました。"
+      redirect_to admin_item_path(@item), notice: "商品の新規登録が完了しました。"
     else
       render :new
     end
