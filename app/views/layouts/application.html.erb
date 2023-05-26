@@ -8,8 +8,6 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--<link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">-->
-    <!--<link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">-->
 
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap" rel="stylesheet">
 
@@ -17,14 +15,20 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
+    
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= render "layouts/header" %>
+    <%= flash[:notice] %>
     <main class="mb-auto">
-    <%= yield %>
+       <% flash.each do |key, value| %>
+          <p class="alert alert-<%= key %>">
+            <%= sanitize value, tags: %w(br) %>
+          </p>
+       <% end %>
+      <%= yield %>
     </main>
 
-  </body>
-  <footer>
+   <%= render "layouts/footer" %>
 
-  </footer>
+  </body>
 </html>

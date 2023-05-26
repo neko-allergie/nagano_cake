@@ -16,24 +16,31 @@ class Public::DeliAddressesController < ApplicationController
     # 今ログインしている顧客の情報を持ってくる(顧客IDでアソシエーションで引っ張ってくるから)
     @deli_address.customer_id = current_customer.id
     # データをデータベースに保存するためのsaveメソッド実行
-    @deli_address.save
-    #  リダイレクト
-    redirect_to '/public/deli_addresses'
-    
+    if @deli_address.save
+      # 保存に成功した時
+      flash[:notice] = "配送先の登録が完了しました"
+      redirect_to '/public/deli_addresses'
+    else
+      flash[:notice] = "配送先の登録ができませんでした"
+      redirect_to '/public/deli_addresses'
+    end
   end
 
   def update
     @deli_address = DeliAddress.find(params[:id])
     if @deli_address.update(deli_address_params)
-       redirect_to '/public/deli_addresses'
+        flash[:notice] = "配送先の編集が完了しました"
+        redirect_to '/public/deli_addresses'
     else
-       render :edit
+        flash[:notice] = "配送先の編集ができませんでした"
+        render :edit
     end
   end
 
   def destroy
     deli_address = DeliAddress.find(params[:id])  # データ（レコード）を1件取得
-    deli_address.destroy  # データ（レコード）を削除
+    deli_address.destroy # データ（レコード）を削除
+    flash[:notice] = "配送先を削除しました"
     redirect_to '/public/deli_addresses'  # 一覧画面へリダイレクト 
   end
   

@@ -7,6 +7,7 @@
           <%= image_tag 'naganocake.png', size: '80x80' %>
         <% end %>
       </div>
+
       <span class="col-md-4 offset-md-3">
         <% if customer_signed_in? %>
           <p> ようこそ <%= current_customer.last_name %>さん!</p>

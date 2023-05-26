@@ -14,11 +14,13 @@ class Customer < ApplicationRecord
     validates :first_name
     validates :last_kana
     validates :first_kana
-    validates :postcode
+    validates :postcode, length: { is: 7 }
     validates :address
-    validates :phone_number
-    validates :email
+    validates :phone_number,    length: { in: 10..11 }
   end
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
   # フルネーム表示
   def full_name
