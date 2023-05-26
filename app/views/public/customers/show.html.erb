@@ -1,12 +1,8 @@
 <div class="container">
-
     <div class="row">
-
       <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
         <h2>マイページ</h2>
-          登録情報<%= link_to "編集する", public_customer_edit_path,class: "btn btn-info btn-sm btn-block mb-3" %>
-
-
+          登録情報<%= link_to "編集する", public_customer_edit_path,class: "btn btn-outline-info" %>
           <table border="1">
             <tr>
               <th>氏名</th>
@@ -46,22 +42,18 @@
             </td>
             </tr>
           </table>
-
-
-        配送先<%= link_to "一覧を見る", public_deli_addresses_path,class: "btn btn-primary btn-sm btn-block mb-3" %>
-
-
-        注文履歴<%= link_to "一覧を見る", public_orders_path,class: "btn btn-primary btn-sm btn-block mb-3" %>
+        配送先<%= link_to "一覧を見る", public_deli_addresses_path,class: "btn btn-outline-secondary" %>
+        注文履歴<%= link_to "一覧を見る", public_orders_path,class: "btn btn-outline-secondary" %>
       </div>
-  </div>
+    </div>
 </div>
 
 
 <style>
-table{width:600px;}
-th{
-  background-color:gainsboro;
-  text-align:center;
-}
+table{width:600px;
+      margin-top:30px;
+      margin-bottom:30px;}
+th{background-color:gainsboro;
+    text-align:center;}
 td{width:70%;}
 </style>

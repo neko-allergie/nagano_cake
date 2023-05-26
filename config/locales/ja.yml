@@ -1,5 +1,5 @@
 
-#遠藤記述
+#遠藤記述、柴田追記
 ja:
   enums:
     item:
@@ -11,6 +11,25 @@ ja:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
   activerecord:
+    models:
+      customer: カスタマー
+    attributes:
+      customer:
+        email: メールアドレス
+        last_name: 名字
+        first_name: 名前
+        last_kana: 名字(カナ)
+        first_kana: 名前(カナ)
+        postcode: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+    models:
+      deli_addresses: 配送先
+    attributes:
+      deli_addresses:
+        postcode: 郵便番号
+        name: 宛名
+        address: 住所
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

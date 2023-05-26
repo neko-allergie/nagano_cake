@@ -1,64 +1,60 @@
 
 <%= stylesheet_link_tag "public/homes", :media => "all" %>
 
-
-
-<table class="display-5 mb-3">
-  <tr>
-    <td>ようこそ、ながのCAKEへ!</td>
-  </tr>
-</table>
-
 <div class="container">
-<div class="row">
-
-<div class="col-md-8 offset-md-3 mb-5 ">
-  <p class="text-start text-success ">このサイトは、ケーキ販売のECサイトになります。</p>
-  <p class="text-center text-success">会員でない方も商品の閲覧はできますが</p>
-  <p class="text-end text-success">購入には会員登録が必要となります。</p>
-</div>
-
-
-<div class="col-md-8 offset-md-3 mt-10">
-  <h1>新着商品</h1>
-</div>
-
-
-
-<div id="carouselExampleIndicators" class="carousel slide col-md-10 offset-md-1" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <%= image_tag 'n1.jpg', size: '900x500' %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag 'cake_2.jpg', size: '900x500' %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag 'candy_1.jpg', size: '900x500' %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag 'cake_4.jpg', size: '900x500' %>
-    </div>
-    <div class="carousel-item">
-      <%= image_tag 'pudding_1.jpg', size: '900x500' %>
-    </div>
-  <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-
-</div>
-</div>
+    <div class="row">
+      <div class="col-lg-2">
+        <%= render 'public/items/genre', genres: @genres %>
+        <!--renderで_genre.htmlに行く→_genreの中のリンクで商品一覧へ行く-->
+      </div>
+        <table class="display-5 mb-3">
+          <tr>
+            <td>ようこそ、ながのCAKEへ!</td>
+          </tr>
+        </table>
+      <div class="row">
+        <div class="col-md-8 offset-md-3 mb-5 ">
+          <p class="text-start text-success ">このサイトは、ケーキ販売のECサイトになります。</p>
+          <p class="text-center text-success">会員でない方も商品の閲覧はできますが</p>
+          <p class="text-end text-success">購入には会員登録が必要となります。</p>
+        </div>
+        <div class="col-md-8 offset-md-3 mt-10">
+          <h3>新着商品</h3>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide col-md-10 offset-md-1" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= image_tag 'n1.jpg', size: '900x500' %>
+            </div>
+            <div class="carousel-item">
+              <%= image_tag 'cake_2.jpg', size: '900x500' %>
+            </div>
+            <div class="carousel-item">
+              <%= image_tag 'candy_1.jpg', size: '900x500' %>
+            </div>
+            <div class="carousel-item">
+              <%= image_tag 'cake_4.jpg', size: '900x500' %>
+            </div>
+            <div class="carousel-item">
+              <%= image_tag 'pudding_1.jpg', size: '900x500' %>
+            </div>
+            <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div> 
+        </div>
+  　  </div>
+   </div>
+  </div>
