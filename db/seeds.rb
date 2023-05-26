@@ -70,7 +70,7 @@ item3 = Item.new(
    name:"苺のムースタルト（1カット）",
    introduction:"甘酸っぱい苺を贅沢に使用 新鮮な苺たっぷりのタルト。甘酸っぱくジューシーな苺と自家製カスタードクリーム、誰もが大好きな組み合わせです",
    genre_id: genre.id,
-   without_tax: 400,
+   without_tax: 450,
    sale_status:0
    )
 item3.image.attach(io: File.open(Rails.root.join('app/assets/images/cake_3.jpg')), filename: 'cake_3.jpg')
@@ -80,7 +80,7 @@ item4 = Item.new(
    name:"レモンのレアチーズケーキ（1カット）",
    introduction:"レモンの酸味とサッパリとしたチーズの風味がたまらない夏にピッタリの商品です。",
    genre_id: genre.id,
-   without_tax: 400,
+   without_tax: 450,
    sale_status:0
    )
 item4.image.attach(io: File.open(Rails.root.join('app/assets/images/cake_4.jpg')), filename: 'cake_4.jpg')
@@ -90,44 +90,64 @@ item5 = Item.new(
    name:"チョコミントカップケーキ",
    introduction:"チョコミントクリームをたっぷり乗せたカップケーキです",
    genre_id: genre.id,
-   without_tax: 400,
+   without_tax: 450,
    sale_status:0
    )
 item5.image.attach(io: File.open(Rails.root.join('app/assets/images/cake_5.jpg')), filename: 'cake_5.jpg')
 item5.save!
 
-genre = Genre.find_by(name: "焼き菓子")
 item6 = Item.new(
+   name:"抹茶ミルクレープ（1カット）",
+   introduction:"京都宇治抹茶を混ぜ込んだ上品な甘さのミルクレープです",
+   genre_id: genre.id,
+   without_tax: 450,
+   sale_status:0
+   )
+item6.image.attach(io: File.open(Rails.root.join('app/assets/images/cake_6.jpg')), filename: 'cake_6.jpg')
+item6.save!
+
+genre = Genre.find_by(name: "焼き菓子")
+item7 = Item.new(
    name:"カスタードシュークリーム",
    introduction:"北アルプス山麓でのびのび育った牛の乳とこだわりの卵で作ったカスタードクリームを高温でサクッと焼き上げたシューに合わせました",
    genre_id: genre.id,
    without_tax: 400,
    sale_status:0
    )
-item6.image.attach(io: File.open(Rails.root.join('app/assets/images/yakigashi_1.jpg')), filename: 'yakigashi_1.jpg')
-item6.save!
+item7.image.attach(io: File.open(Rails.root.join('app/assets/images/yakigashi_1.jpg')), filename: 'yakigashi_1.jpg')
+item7.save!
+
+item8 = Item.new(
+   name:"マカロン（1箱6個入り）",
+   introduction:"外側がカリっとしていて中が柔らかく、香り豊かでとろけるような中身のマカロンは、 パートダマンドをベースにメレンゲを加えて作られます",
+   genre_id: genre.id,
+   without_tax: 400,
+   sale_status:0
+   )
+item8.image.attach(io: File.open(Rails.root.join('app/assets/images/yakigashi_2.jpg')), filename: 'yakigashi_2.jpg')
+item8.save!
 
 genre = Genre.find_by(name: "プリン")
-item7 = Item.new(
+item9 = Item.new(
    name:"苺のジュレプリン",
    introduction:"新鮮な苺をジュレにし、こだわりの卵で作ったプリンと合わせました。3月から5月までの期間限定商品です。",
    genre_id: genre.id,
    without_tax: 350,
    sale_status:1
    )
-item7.image.attach(io: File.open(Rails.root.join('app/assets/images/pudding_1.jpg')), filename: 'pudding_1.jpg')
-item7.save!
+item9.image.attach(io: File.open(Rails.root.join('app/assets/images/pudding_1.jpg')), filename: 'pudding_1.jpg')
+item9.save!
 
 genre = Genre.find_by(name: "キャンディ")
-item8 = Item.new(
+item10 = Item.new(
    name:"季節の金平糖（夏）",
    introduction:"昔懐かしい金平糖で四季を感じて下さい",
    genre_id: genre.id,
    without_tax: 250,
    sale_status:0
    )
-item8.image.attach(io: File.open(Rails.root.join('app/assets/images/candy_1.jpg')), filename: 'candy_1.jpg')
-item8.save!
+item10.image.attach(io: File.open(Rails.root.join('app/assets/images/candy_1.jpg')), filename: 'candy_1.jpg')
+item10.save!
 
 
 

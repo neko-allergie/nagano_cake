@@ -10,6 +10,6 @@ end
 
 
   def address_display
-    '〒' + postal_code + ' ' + address + ' ' + name
+    '〒' + postcode + ' ' + address + ' ' + name
   end
 end

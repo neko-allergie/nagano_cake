@@ -19,11 +19,13 @@
     <%= render "layouts/header" %>
     <%= flash[:notice] %>
     <main class="mb-auto">
-    <%= yield %>
+       <% flash.each do |key, value| %>
+          <p class="alert alert-<%= key %>">
+            <%= sanitize value, tags: %w(br) %>
+          </p>
+       <% end %>
+      <%= yield %>
     </main>
-    
+   <%= render "layouts/footer" %>
   </body>
-  <footer>
-
-  </footer>
 </html>
