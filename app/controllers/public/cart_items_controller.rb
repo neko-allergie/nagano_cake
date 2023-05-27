@@ -9,27 +9,27 @@ class Public::CartItemsController < ApplicationController
 
   def create
     increase_or_create(params[:cart_item][:item_id])
-    redirect_to public_cart_items_path, notice: 'Successfully added product to your cart'
+    redirect_to public_cart_items_path, notice: '商品をカートに入れました'
   end
 
   def increase
     @cart_item.increment!(:quantity, 1)
-    redirect_to request.referer, notice: 'Successfully updated your cart'
+    redirect_to request.referer, notice: 'カートを更新しました'
   end
 
   def decrease
     decrease_or_destroy(@cart_item)
-    redirect_to request.referer, notice: 'Successfully updated your cart'
+    redirect_to request.referer, notice: 'カートを更新しました'
   end
 
   def destroy
     @cart_item.destroy
-    redirect_to request.referer, notice: 'Successfully deleted one cart item'
+    redirect_to request.referer, notice: 'カートから商品を削除しました'
   end
 
   def destroy_all
     CartItem.destroy_all
-    redirect_to request.referer, notice: 'Successfully deleted one cart item'
+    redirect_to request.referer, notice: 'カートから商品を全て削除しました'
   end
 
   def update

@@ -11,8 +11,11 @@ class Public::CustomersController < ApplicationController
     
     def update
       customer = current_customer
-      customer.update(customer_params)
-      redirect_to public_customer_edit_path
+      if customer.update(customer_params)
+        redirect_to public_customer_show_path, notice: '更新が完了いたしました。'
+      else
+        redirect_to public_customer_edit_path, notice: '更新できませんでした。'
+      end
     end
     
     def confirm
