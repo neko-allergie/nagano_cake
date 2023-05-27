@@ -1,0 +1,51 @@
+<div class="container mt-5 mb-5">
+  <h2><%= @order.customer.full_name %>さんの注文履歴</h2>
+
+  <div class="row">
+    <%= render 'info', order: @order %>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-7">
+    <p>注文内容</p>
+    <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order_details.each do |order_detail| %>
+      <tr>
+      <td>
+        <%= order_detail.item.name %>
+      </td>
+      <td>
+        <%= order_detail.item.taxin_order_price %>
+      </td>
+      <td>
+        <%= order_detail.quantity %>
+      </td>
+      <td>
+        <%= order_detail.item_sum %>
+      </td>
+      <td>
+        <%= form_with model: @order_detail, url: admin_order_detail_path(@order), method: :patch, local: true do |f| %>
+          <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, class: "making_status" %>
+          <%= f.submit "更新" , class: "btn btn-outline-success" %>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+    </div>
+    <div class="col-lg-5">
+      <%= render 'pay', order: @order %>
+    </div>
+  </div>
+</div>
