@@ -1,0 +1,33 @@
+    <p>注文情報</p>
+    <table class='table table-hover table-inverse'>
+    <tr>
+      <th>購入者</th>
+      <td><%= order.customer.full_name %></td>
+    </tr>
+    <tr>
+      <th>注文日</th>
+      <td><%= order.created_at %></td>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <td>
+        〒<%= order.postcode %> <%= order.address %><br>
+        <%= order.name %>
+      </td>
+    </tr>
+    <tr>
+      <th>支払い方法</th>
+      <td><%= order.pay_method_i18n %></td>
+    </tr>
+    <tr>
+      <th>注文ステータス</th>
+      <td>
+        <%#= @order.status_i18n %>
+        <%= form_with model: order, url: admin_order_path, method: :patch, local: true do |f| %>
+            <%= f.select :status, Order.statuses_i18n.invert, class: "order_status" %>
+            <%= f.submit "更新" , class: "btn btn-outline-success" %>
+          <% end %>
+
+      </td>
+
+  </table>

@@ -22,11 +22,6 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
-  def order_show
-    # @customer = Customer.find()
-    # @customer = Customer.find(params[:id])
-  end
-
 
 
   private
