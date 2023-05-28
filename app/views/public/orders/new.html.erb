@@ -17,7 +17,8 @@
     <div class="form-group">
       <%= f.label "お届け先" %>
       <div class="form-check mb-3">
-        <%= f.radio_button :address_number, 1, class: "form-check-input" %>
+        <%= f.radio_button :address_number, 1, class: "form-check-input", :checked => true %>
+        <!--:checked => trueで、デフォルトでご自身の住所にチェックを入れておく-->
         <%= f.label :address_1, "ご自身の住所", class: "form-check-label" %>
         <br>
         〒<%= current_customer.postcode %>

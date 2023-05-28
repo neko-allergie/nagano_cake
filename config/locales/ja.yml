@@ -42,6 +42,18 @@ ja:
         postcode: 郵便番号
         name: 宛名
         address: 住所
+    models:
+      orders: 注文
+    attributes:
+      orders:
+        address: 住所
+        postcode: 郵便番号
+        name: 宛名
+    models:
+      cart_items: カートアイテム
+    attributes:
+      cart_items:
+        quantity: 数量
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -127,6 +139,9 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
+      address: 住所
+      name: 宛名
+      postcode: 郵便番号
       blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
