@@ -2,8 +2,8 @@ class Admin::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
 
   def update
-    @order = Order.find(params[:id])
     @order_detail = OrderDetail.find(params[:id])
+    @order = @order_detail.order
     @order_details = @order.order_details.all
 
     # is_updated = true
@@ -21,7 +21,7 @@ class Admin::OrderDetailsController < ApplicationController
       # @order.update(status: 3) if is_updated
       # is_updatedがtrueの場合に、注文ステータスが「発送準備中」に更新されます。上記のif文でis_updatedがfalseになっている場合、更新されません。
     # end
-    # redirect_to admin_order_path(@order)
+    redirect_to admin_order_path(@order)
   end
 
   private
