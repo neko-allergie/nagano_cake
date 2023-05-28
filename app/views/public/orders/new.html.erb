@@ -27,7 +27,7 @@
       <div class="form-check mb-3">
         <%= f.radio_button :address_number, 2, class: "form-check-input" %>
         <%= f.label :address_2, "登録先の住所", class: "form-check-label" %>
-        <%= f.select :address_id, options_from_collection_for_select(DeliAddress.all, :id, :address_display) %>
+        <%= f.select :address_id, options_from_collection_for_select(@customer_address, :id, :address_display) %>
       </div>
       <div class="form-check mb-3">
         <%= f.radio_button :address_number, 3, class: "form-check-input" %>

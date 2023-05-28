@@ -1,9 +1,16 @@
-<footer>
+<footer class="shadow-lg">
   <div class='container mt-5'>
-  	<div class='row'>
+  	<div class='row justify-content-center'>
     	<div class='mx-auto'>
-    		<p>猫アレルギー.inc</p>
-    	</div>
+    	  <div class="sns-icons">
+      	  <i class="fa-brands fa-twitter" style="margin-right: 10px; margin-left: 20px;font-size: 30px;"></i>
+          <i class="fa-brands fa-line" style="margin-right: 10px;font-size: 30px;"></i>
+          <i class="fa-brands fa-instagram"  style="font-size: 30px;"></i>
+          </div>
+      		<p>© NaganoCake.inc</p>
+      </div>
     </div>
-  </div>
+      	<% unless admin_signed_in? %>
+    	   <%= link_to "管理者ログイン",admin_session_path %>
+    	  <% end %>
 </footer>

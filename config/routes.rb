@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   # 管理者用
   namespace :admin do
     root to: "homes#top"
@@ -51,5 +52,5 @@ Rails.application.routes.draw do
       get "order_show" => "customers#order_show"
     end
   end
-
+   get "search" => "searches#search"
 end

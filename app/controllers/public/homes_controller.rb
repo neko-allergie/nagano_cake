@@ -1,6 +1,7 @@
 class Public::HomesController < ApplicationController
     def top
         @genres = Genre.all
+        @q = Item.ransack(params[:q])
         @items = Item.page(params[:page]).limit(3)
     end
 

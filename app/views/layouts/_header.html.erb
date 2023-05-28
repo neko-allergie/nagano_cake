@@ -1,6 +1,6 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
+    <div class="container-fluid">
 
       <div class="row justify-content-center">
         <%= link_to root_path do %>
@@ -8,11 +8,15 @@
         <% end %>
       </div>
 
-      <span class="col-md-4 offset-md-3">
+      <div class="row offset-md-1">
         <% if customer_signed_in? %>
-          <p> ようこそ <%= current_customer.last_name %>さん!</p>
+          <p> ようこそ <%= current_customer.last_name %> さん!</p>
+        <% elsif admin_signed_in? %>
+          <p> 管理者ログイン中</p>
+        <% else %>
+          <p> ようこそ ゲスト さん!</p>
         <% end %>
-      </span>
+      </div>
 
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -23,54 +27,54 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li class="nav-item">
-            <%= link_to "商品一覧", admin_items_path, class: 'btn btn-info' %>
+            <%= link_to "商品一覧", admin_items_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-info' %>
+            <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "注文履歴一覧", admin_root_path, class: 'btn btn-info' %>
+            <%= link_to "注文履歴一覧", admin_root_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-info'%>
+            <%= link_to "ジャンル一覧", admin_genres_path, class: 'btn btn-secondary'%>
           </li>
           <li class="nav-item">
-            <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %>
+            <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-secondary' %>
           </li>
 
          <!--顧客側-->
        <% elsif customer_signed_in? %>
           <li class="nav-item">
-            <%= link_to "マイページ", public_customer_show_path, class: 'btn btn-info' %>
+            <%= link_to "マイページ", public_customer_show_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
+            <%= link_to "商品一覧", public_items_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "カート", public_cart_items_path, class: 'btn btn-info' %>
+            <%= link_to "カート", public_cart_items_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-info' %>
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'btn btn-secondary' %>
           </li>
 
        <% else %>
           <li class="nav-item">
-            <%= link_to "About", about_path, class: 'btn btn-info' %>
+            <%= link_to "About", about_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "商品一覧", public_items_path, class: 'btn btn-info' %>
+            <%= link_to "商品一覧", public_items_path, class: 'btn btn-secondary' %>
           </li>
     　　    <li class="nav-item">
-            <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-info' %>
+            <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-secondary' %>
           </li>
           <li class="nav-item">
-            <%= link_to "会員ログイン",new_customer_session_path, class: 'btn btn-info'%>
+            <%= link_to "会員ログイン",new_customer_session_path, class: 'btn btn-secondary'%>
           </li>
         </ul>
       <% end %>
-
-      </div>
+        <%= render 'layouts/searches',q: @q %>
     </div>
+   </div>
   </nav>
 </header>
 
