@@ -51,6 +51,8 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update] do
       get "order_show" => "customers#order_show"
     end
+    resources :orders, only:[:show,:update]
+    resources :order_details, only:[:update]
+    get "items" => "items#index"
   end
-   get "search" => "searches#search"
 end

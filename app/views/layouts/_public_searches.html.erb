@@ -1,0 +1,12 @@
+<div class="search_form pe-3">
+  <%= form_tag(public_items_path, method: :get) do %>
+  <div class="col-md-3 p-0">
+    <%= text_field_tag :q, params[:q], class:"form-control", placeholder:"商品名検索", style: "width:200px; height: 45px;" %>
+  </div>
+  <div class="col-md-1 offset-md-6">
+    <button class="btn btn-outline-success" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+</div>
+<% end %>
