@@ -72,7 +72,11 @@
           </li>
         </ul>
       <% end %>
-        <%= render 'layouts/searches',q: @q %>
+        <% if admin_signed_in? %>
+         <%= render 'layouts/admin_searches',q: @q %>
+        <% else %>
+         <%= render 'layouts/public_searches',q: @q %>
+        <% end %>
     </div>
    </div>
   </nav>
