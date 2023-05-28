@@ -8,7 +8,7 @@
         <% end %>
       </div>
 
-      <div class="row offset-md-1">
+      <div class="row offset-md-1 text-success">
         <% if customer_signed_in? %>
           <p> ようこそ <%= current_customer.last_name %> さん!</p>
         <% elsif admin_signed_in? %>
