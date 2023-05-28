@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
   validates :without_tax, presence: true
-  
+
   def taxin_order_price
     (self.without_tax * 1.1).round
   end
@@ -23,5 +23,10 @@ class Item < ApplicationRecord
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     image.variant(resize_to_limit: [width, height], gravity: "center" ,crop: "125x125+0+0" ).processed
+  end
+
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "genre_id", "id", "introduction", "name", "sale_status", "updated_at", "without_tax"]
   end
 end

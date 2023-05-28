@@ -59,4 +59,17 @@ body {
 header {
   background-color: #fff8dc;
 }
+.pagination {
+  justify-content: center;
+  margin:50px auto;
+  border: none;
+  color: #696969;
+  border-radius: 15px;
+}
 
+.nav-item {
+  margin:10px;
+}
+footer {
+  background-color: #fff8dc;
+}

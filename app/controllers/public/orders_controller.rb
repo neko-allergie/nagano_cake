@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.page(params[:page]).per(8)
   end
 
   def show
@@ -34,6 +34,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @customer_address = DeliAddress.where(customer_id: current_customer.id)
   end
 
   def confirm
@@ -72,7 +73,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:order][:address_number] == "2"
-      deli_address = DeliAddress.find(params[:order][:address_id])
+      deli_address = DeliAddress.where(params[:order][:address_id])
       @order.postcode = deli_address.postcode
       @order.address = deli_address.address
       @order.name = deli_address.name

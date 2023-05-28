@@ -44,6 +44,114 @@ Customer.create!(
    password: "111111",
    )
 
+   Customer.create!(
+   last_name: "こー",
+   first_name: "いち",
+   last_kana: "コー",
+   first_kana: "イチ",
+   postcode: "9631123",
+   address: "日本福島1-2-3",
+   phone_number: "09098765432",
+   email: "b@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "ありー",
+   first_name: "さか",
+   last_kana: "アリ",
+   first_kana: "サカ",
+   postcode: "1472583",
+   address: "日本横浜1-2-3",
+   phone_number: "09011122348",
+   email: "c@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "しばたん",
+   first_name: "しばたん",
+   last_kana: "シバタン",
+   first_kana: "シバタン",
+   postcode: "9876543",
+   address: "日本大阪1-2-3",
+   phone_number: "09098724561",
+   email: "d@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "佐藤",
+   first_name: "健",
+   last_kana: "サトウ",
+   first_kana: "タケル",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "e@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "高橋",
+   first_name: "一生",
+   last_kana: "タカハシ",
+   first_kana: "イッセイ",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "f@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "松下",
+   first_name: "菜々子",
+   last_kana: "マツシタ",
+   first_kana: "ナナコ",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "g@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "小松",
+   first_name: "菜奈",
+   last_kana: "コマツ",
+   first_kana: "ナナ",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "h@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "菅田",
+   first_name: "将暉",
+   last_kana: "スダ",
+   first_kana: "マサキ",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "i@gmail.com",
+   password: "111111",
+   )
+
+   Customer.create!(
+   last_name: "yonezu",
+   first_name: "kenshi",
+   last_kana: "ヨネズ",
+   first_kana: "ケンシ",
+   postcode: "1234568",
+   address: "日本品川1-2-3",
+   phone_number: "09012345688",
+   email: "j@gmail.com",
+   password: "111111",
+   )
+
 
 #商品初期登録
 genre = Genre.find_by(name: "ケーキ")

@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
     validates :address
     validates :phone_number,    length: { in: 10..11 }
   end
-  
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 

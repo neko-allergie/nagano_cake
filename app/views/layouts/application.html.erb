@@ -15,10 +15,9 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    
+
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= render "layouts/header" %>
-    <%= flash[:notice] %>
     <main class="mb-auto">
        <% flash.each do |key, value| %>
           <p class="alert alert-<%= key %>">
