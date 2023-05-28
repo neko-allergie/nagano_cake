@@ -6,7 +6,7 @@
         商品一覧
       </h1>
 
-  
+
   <div class="mb-8 mt-5 text-center">
 
     <div class="row">
@@ -34,4 +34,8 @@
   </div>
 </div>
 </html>
-<%= paginate @items %>
+<div class="mx-auto">
+  <div class="col-md-5 offset-md-5 mt-5">
+      <%= paginate @items %>
+  </div>
+</div>

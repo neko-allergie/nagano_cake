@@ -1,17 +1,15 @@
 
 <%= stylesheet_link_tag "public/homes", :media => "all" %>
 
-<div class="container">
-    <div class="row">
-      <div class="col-lg-2">
-        <%= render 'public/items/genre', genres: @genres %>
-        <!--renderで_genre.htmlに行く→_genreの中のリンクで商品一覧へ行く-->
-      </div>
         <table class="display-5 mb-3">
           <tr>
             <td>ようこそ、ながのCAKEへ!</td>
           </tr>
         </table>
+
+<div class="container">
+    <div class="row">
+
       <div class="row">
         <div class="col-md-8 offset-md-3 mb-5 ">
           <p class="text-start text-success ">このサイトは、ケーキ販売のECサイトになります。</p>
@@ -55,6 +53,27 @@
             </a>
           </div> 
         </div>
-  　  </div>
-   </div>
+  　   </div>
+    </div>
+    <div class="row col-md-12 offset-md-1">
+      <div class="col-lg-2 mt-5 ">
+        <%= render 'public/items/genre', genres: @genres %>
+        <!--renderで_genre.htmlに行く→_genreの中のリンクで商品一覧へ行く-->
+      </div>
+      
+        <div class="col-lg-10 mt-5 d-flex">
+          <% @items.each do |item| %>
+          <div class="col-3">
+            <%= link_to public_item_path(item) do %>
+              <%= image_tag item.get_item_image(150,150) %>
+            <% end %>
+            <div><%= link_to item.name, public_item_path(item) %></div>
+            <div><%= number_to_currency(item.without_tax, strip_insignificant_zeros: true) %></div>
+          </div>
+          <% end %>
+          <div><%= link_to "すべての商品", public_items_path(@items) %></div>
+        </div>
+    </div>
+      
+
   </div>

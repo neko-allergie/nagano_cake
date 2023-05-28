@@ -21,6 +21,7 @@ span, div, f {
 }
 
 
+
 table {
   background-color: #fffaf0;
 }
@@ -31,18 +32,12 @@ th {
   border-top: solid 2px black;
   border-bottom: solid 2px black;
 }
-th:before, th:after {
-  content: '';
-  position: absolute;
-  top: -7px;
-  width: 2px;
-  height: -webkit-calc(100% + 14px);
-  height: calc(100% + 14px);
-  background-color: black;
-}
+
+
 th:before {
   left: 7px;
 }
+
 th:after {
   right: 7px;
 }
