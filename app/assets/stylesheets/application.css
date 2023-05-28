@@ -21,9 +21,8 @@ span, div, f {
 }
 
 
-
 table {
-  background-color: #fffaf0;
+  background-color: #fceab0;
 }
 
 th {
@@ -43,16 +42,16 @@ th:after {
 }
 
 body {
-  background-color: #faf0e6;
+  background-image: url("cute.gif");
+  background-color: #FFDEAD;
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background-image:url("images/bg.jpg");
 
 }
 
 header {
-  background-color: #fff8dc;
+  background-color: #D2B48C;
 }
 .pagination {
   justify-content: center;
@@ -66,5 +65,6 @@ header {
   margin:10px;
 }
 footer {
-  background-color: #fff8dc;
+  background-color: #D2B48C;
 }
+
