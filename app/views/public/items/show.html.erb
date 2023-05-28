@@ -3,8 +3,6 @@
   <div class='row'>
     <div class='col offset-md-1 text-center'>
       <br><br><br>
-
-
       <table class='table'>
         <tr>
           <td>
@@ -29,7 +27,7 @@
             <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local:true do |f| %>
               <%= f.hidden_field :item_id, :value => @item.id %>
               <div class="form-group">
-                <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+                <%= f.submit "カートに入れる", class: "btn btn-outline-secondary" %>
               </div>
             <% end %>
           </td>
