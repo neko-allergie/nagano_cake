@@ -24,36 +24,30 @@ ja:
         production_complete: "製作完了"
   activerecord:
     models:
-      customer: カスタマー
+      customer: "会員"
+      deli_addresses: "配送先"
+      orders: "注文"
+      cart_items: "カートアイテム"
     attributes:
       customer:
-        email: メールアドレス
-        last_name: 名字
-        first_name: 名前
-        last_kana: 名字(カナ)
-        first_kana: 名前(カナ)
-        postcode: 郵便番号
-        address: 住所
-        phone_number: 電話番号
-    models:
-      deli_addresses: 配送先
-    attributes:
+        email: "メールアドレス"
+        last_name: "名字"
+        first_name: "名前"
+        last_kana: "名字(カナ)"
+        first_kana: "名前(カナ)"
+        postcode: "郵便番号"
+        address: "住所"
+        phone_number: "電話番号"
       deli_addresses:
-        postcode: 郵便番号
-        name: 宛名
-        address: 住所
-    models:
-      orders: 注文
-    attributes:
+        postcode: "郵便番号"
+        name: "宛名"
+        address: "住所"
       orders:
-        address: 住所
-        postcode: 郵便番号
-        name: 宛名
-    models:
-      cart_items: カートアイテム
-    attributes:
+        address: "住所"
+        postcode: "郵便番号"
+        name: "宛名"
       cart_items:
-        quantity: 数量
+        quantity: "数量"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
