@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
     <h2>商品編集</h2>
-  <%= render 'layouts/errors', obj: @items %>
+  <%= render 'layouts/errors', obj: @item %>
 
   <%= form_with model: @item, url: admin_item_path, class: "my-4" do |f| %>
     <div class="form-group">
