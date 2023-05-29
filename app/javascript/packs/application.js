@@ -13,7 +13,6 @@ import "bootstrap";
 import '@fortawesome/fontawesome-free/js/all'
 import '../stylesheets/application';
 import '../stylesheets/complete';
-import "script.js"
 // import Swiper from 'swiper/swiper-bundle.js';
 // import 'swiper/swiper-bundle.css';
 
