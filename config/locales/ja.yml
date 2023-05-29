@@ -42,6 +42,10 @@ ja:
         postcode: "郵便番号"
         name: "宛名"
         address: "住所"
+      orders:
+        address: "住所"
+        postcode: "郵便番号"
+        name: "宛名"
       cart_items:
         quantity: "数量"
     errors:
